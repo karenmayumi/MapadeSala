@@ -17,9 +17,20 @@ namespace MapadeSala
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnHelloWorld_click(object sender, EventArgs e)
         {
             MessageBox.Show("Hello world!");
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHelloWorld_enter(object sender, EventArgs e)
+        {
+            MessageBox.Show("Entrando com o mouse no botão");
+
         }
     }
 }

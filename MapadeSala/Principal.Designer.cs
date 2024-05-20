@@ -49,7 +49,7 @@ namespace MapadeSala
             this.faltasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHelloWorld = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@ namespace MapadeSala
             this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(831, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,27 +197,32 @@ namespace MapadeSala
             this.todosProfessoresToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.todosProfessoresToolStripMenuItem.Text = "Todos Professores";
             // 
-            // button1
+            // btnHelloWorld
             // 
-            this.button1.Location = new System.Drawing.Point(131, 149);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnHelloWorld.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnHelloWorld.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelloWorld.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHelloWorld.Location = new System.Drawing.Point(186, 229);
+            this.btnHelloWorld.Name = "btnHelloWorld";
+            this.btnHelloWorld.Size = new System.Drawing.Size(439, 100);
+            this.btnHelloWorld.TabIndex = 1;
+            this.btnHelloWorld.Text = "Dizer \"Hello World\" para mim!";
+            this.btnHelloWorld.UseVisualStyleBackColor = false;
+            this.btnHelloWorld.Click += new System.EventHandler(this.btnHelloWorld_click);
+            this.btnHelloWorld.MouseEnter += new System.EventHandler(this.btnHelloWorld_enter);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(831, 488);
+            this.Controls.Add(this.btnHelloWorld);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -247,6 +252,6 @@ namespace MapadeSala
         private System.Windows.Forms.ToolStripMenuItem faltasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salasLivresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosProfessoresToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHelloWorld;
     }
 }
