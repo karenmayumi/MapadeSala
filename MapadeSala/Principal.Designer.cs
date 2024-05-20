@@ -50,6 +50,14 @@ namespace MapadeSala
             this.salasLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHelloWorld = new System.Windows.Forms.Button();
+            this.txt_n1 = new System.Windows.Forms.TextBox();
+            this.d = new System.Windows.Forms.Label();
+            this.btn_Multi = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_Sum = new System.Windows.Forms.Button();
+            this.txt_n2 = new System.Windows.Forms.TextBox();
+            this.btn_Sub = new System.Windows.Forms.Button();
+            this.btn_Div = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +70,7 @@ namespace MapadeSala
             this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(831, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(891, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -202,20 +210,112 @@ namespace MapadeSala
             this.btnHelloWorld.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnHelloWorld.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelloWorld.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnHelloWorld.Location = new System.Drawing.Point(186, 229);
+            this.btnHelloWorld.Location = new System.Drawing.Point(582, 96);
             this.btnHelloWorld.Name = "btnHelloWorld";
-            this.btnHelloWorld.Size = new System.Drawing.Size(439, 100);
+            this.btnHelloWorld.Size = new System.Drawing.Size(245, 102);
             this.btnHelloWorld.TabIndex = 1;
             this.btnHelloWorld.Text = "Dizer \"Hello World\" para mim!";
             this.btnHelloWorld.UseVisualStyleBackColor = false;
             this.btnHelloWorld.Click += new System.EventHandler(this.btnHelloWorld_click);
             this.btnHelloWorld.MouseEnter += new System.EventHandler(this.btnHelloWorld_enter);
             // 
+            // txt_n1
+            // 
+            this.txt_n1.Location = new System.Drawing.Point(45, 117);
+            this.txt_n1.Name = "txt_n1";
+            this.txt_n1.Size = new System.Drawing.Size(190, 20);
+            this.txt_n1.TabIndex = 2;
+            // 
+            // d
+            // 
+            this.d.AutoSize = true;
+            this.d.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.d.Location = new System.Drawing.Point(40, 78);
+            this.d.Name = "d";
+            this.d.Size = new System.Drawing.Size(214, 26);
+            this.d.TabIndex = 3;
+            this.d.Text = "Escreva um numero:";
+            // 
+            // btn_Multi
+            // 
+            this.btn_Multi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Multi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Multi.Location = new System.Drawing.Point(255, 244);
+            this.btn_Multi.Name = "btn_Multi";
+            this.btn_Multi.Size = new System.Drawing.Size(48, 48);
+            this.btn_Multi.TabIndex = 4;
+            this.btn_Multi.Text = "X";
+            this.btn_Multi.UseVisualStyleBackColor = true;
+            this.btn_Multi.Click += new System.EventHandler(this.btn_Multi_Multiplicar);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(284, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Escreva outro número:";
+            // 
+            // btn_Sum
+            // 
+            this.btn_Sum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Sum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sum.Location = new System.Drawing.Point(55, 244);
+            this.btn_Sum.Name = "btn_Sum";
+            this.btn_Sum.Size = new System.Drawing.Size(48, 48);
+            this.btn_Sum.TabIndex = 8;
+            this.btn_Sum.Text = "+";
+            this.btn_Sum.UseVisualStyleBackColor = true;
+            this.btn_Sum.Click += new System.EventHandler(this.btn_Sum_Somar);
+            // 
+            // txt_n2
+            // 
+            this.txt_n2.Location = new System.Drawing.Point(289, 117);
+            this.txt_n2.Name = "txt_n2";
+            this.txt_n2.Size = new System.Drawing.Size(190, 20);
+            this.txt_n2.TabIndex = 9;
+            // 
+            // btn_Sub
+            // 
+            this.btn_Sub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Sub.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sub.Location = new System.Drawing.Point(156, 244);
+            this.btn_Sub.Name = "btn_Sub";
+            this.btn_Sub.Size = new System.Drawing.Size(48, 48);
+            this.btn_Sub.TabIndex = 10;
+            this.btn_Sub.Text = "-";
+            this.btn_Sub.UseVisualStyleBackColor = true;
+            this.btn_Sub.Click += new System.EventHandler(this.btn_Sub_Subtrair);
+            // 
+            // btn_Div
+            // 
+            this.btn_Div.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Div.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Div.Location = new System.Drawing.Point(348, 244);
+            this.btn_Div.Name = "btn_Div";
+            this.btn_Div.Size = new System.Drawing.Size(48, 48);
+            this.btn_Div.TabIndex = 11;
+            this.btn_Div.Text = "/";
+            this.btn_Div.UseVisualStyleBackColor = true;
+            this.btn_Div.Click += new System.EventHandler(this.btn_Div_Dividir);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 488);
+            this.BackgroundImage = global::MapadeSala.Properties.Resources.minezin;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(891, 516);
+            this.Controls.Add(this.btn_Div);
+            this.Controls.Add(this.btn_Sub);
+            this.Controls.Add(this.txt_n2);
+            this.Controls.Add(this.btn_Sum);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_Multi);
+            this.Controls.Add(this.d);
+            this.Controls.Add(this.txt_n1);
             this.Controls.Add(this.btnHelloWorld);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -253,5 +353,13 @@ namespace MapadeSala
         private System.Windows.Forms.ToolStripMenuItem salasLivresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosProfessoresToolStripMenuItem;
         private System.Windows.Forms.Button btnHelloWorld;
+        private System.Windows.Forms.TextBox txt_n1;
+        private System.Windows.Forms.Label d;
+        private System.Windows.Forms.Button btn_Multi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_Sum;
+        private System.Windows.Forms.TextBox txt_n2;
+        private System.Windows.Forms.Button btn_Sub;
+        private System.Windows.Forms.Button btn_Div;
     }
 }
