@@ -18,6 +18,7 @@ namespace mapa_de_sala
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Principal());
+
         }
     }
 }

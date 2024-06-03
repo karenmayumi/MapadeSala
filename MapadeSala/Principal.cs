@@ -24,5 +24,29 @@ namespace MapadeSala
             frmSalas s = new frmSalas();
             s.ShowDialog();
         }
+
+        private void professoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProfessores f = new frmProfessores();
+            f.ShowDialog();
+        }
+
+        private void disciplinasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDisciplinas d = new frmDisciplinas();
+            d.ShowDialog();
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCursos c = new frmCursos();
+            c.ShowDialog();
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuario u = new frmUsuario();
+            u.ShowDialog();
+        }
     }
 }

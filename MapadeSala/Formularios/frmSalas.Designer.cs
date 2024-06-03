@@ -33,12 +33,12 @@ namespace MapadeSala.Formularios
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNumComp = new System.Windows.Forms.TextBox();
+            this.txtNumPc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNumChair = new System.Windows.Forms.TextBox();
+            this.txtNumCadeira = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.chkIsLab = new System.Windows.Forms.CheckBox();
-            this.chkIsAvaliable = new System.Windows.Forms.CheckBox();
+            this.chkDisponivel = new System.Windows.Forms.CheckBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dtGridSalas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
@@ -76,12 +76,12 @@ namespace MapadeSala.Formularios
             this.label2.TabIndex = 2;
             this.label2.Text = "Nome da sala";
             // 
-            // txtNumComp
+            // txtNumPc
             // 
-            this.txtNumComp.Location = new System.Drawing.Point(230, 65);
-            this.txtNumComp.Name = "txtNumComp";
-            this.txtNumComp.Size = new System.Drawing.Size(100, 20);
-            this.txtNumComp.TabIndex = 5;
+            this.txtNumPc.Location = new System.Drawing.Point(230, 65);
+            this.txtNumPc.Name = "txtNumPc";
+            this.txtNumPc.Size = new System.Drawing.Size(100, 20);
+            this.txtNumPc.TabIndex = 5;
             // 
             // label3
             // 
@@ -92,12 +92,12 @@ namespace MapadeSala.Formularios
             this.label3.TabIndex = 4;
             this.label3.Text = "Num Comput";
             // 
-            // txtNumChair
+            // txtNumCadeira
             // 
-            this.txtNumChair.Location = new System.Drawing.Point(346, 65);
-            this.txtNumChair.Name = "txtNumChair";
-            this.txtNumChair.Size = new System.Drawing.Size(100, 20);
-            this.txtNumChair.TabIndex = 7;
+            this.txtNumCadeira.Location = new System.Drawing.Point(346, 65);
+            this.txtNumCadeira.Name = "txtNumCadeira";
+            this.txtNumCadeira.Size = new System.Drawing.Size(100, 20);
+            this.txtNumCadeira.TabIndex = 7;
             // 
             // label4
             // 
@@ -118,15 +118,15 @@ namespace MapadeSala.Formularios
             this.chkIsLab.Text = "É laboratório";
             this.chkIsLab.UseVisualStyleBackColor = true;
             // 
-            // chkIsAvaliable
+            // chkDisponivel
             // 
-            this.chkIsAvaliable.AutoSize = true;
-            this.chkIsAvaliable.Location = new System.Drawing.Point(550, 59);
-            this.chkIsAvaliable.Name = "chkIsAvaliable";
-            this.chkIsAvaliable.Size = new System.Drawing.Size(101, 17);
-            this.chkIsAvaliable.TabIndex = 9;
-            this.chkIsAvaliable.Text = "Está Disponível";
-            this.chkIsAvaliable.UseVisualStyleBackColor = true;
+            this.chkDisponivel.AutoSize = true;
+            this.chkDisponivel.Location = new System.Drawing.Point(550, 59);
+            this.chkDisponivel.Name = "chkDisponivel";
+            this.chkDisponivel.Size = new System.Drawing.Size(101, 17);
+            this.chkDisponivel.TabIndex = 9;
+            this.chkDisponivel.Text = "Está Disponível";
+            this.chkDisponivel.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
@@ -136,6 +136,7 @@ namespace MapadeSala.Formularios
             this.btnSalvar.TabIndex = 10;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dtGridSalas
             // 
@@ -152,11 +153,11 @@ namespace MapadeSala.Formularios
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dtGridSalas);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.chkIsAvaliable);
+            this.Controls.Add(this.chkDisponivel);
             this.Controls.Add(this.chkIsLab);
-            this.Controls.Add(this.txtNumChair);
+            this.Controls.Add(this.txtNumCadeira);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNumComp);
+            this.Controls.Add(this.txtNumPc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
@@ -177,12 +178,12 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNumComp;
+        private System.Windows.Forms.TextBox txtNumPc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNumChair;
+        private System.Windows.Forms.TextBox txtNumCadeira;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkIsLab;
-        private System.Windows.Forms.CheckBox chkIsAvaliable;
+        private System.Windows.Forms.CheckBox chkDisponivel;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DataGridView dtGridSalas;
     }

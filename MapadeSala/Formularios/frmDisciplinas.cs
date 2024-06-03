@@ -11,26 +11,26 @@ using Model.Entidades;
 
 namespace MapadeSala.Formularios
 {
-    public partial class frmSalas : Form
+    public partial class frmDisciplinas : Form
     {
+
         BindingSource dados;
-        public frmSalas()
+        public frmDisciplinas()
         {
             InitializeComponent();
             dados = new BindingSource();
             dtGridSalas.DataSource = dados;
         }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            SalasEntidade sala = new SalasEntidade();
-            sala.Id = Convert.ToInt32(txtId.Text);
-            sala.Nome = txtNome.Text;
-            sala.IsLab = chkIsLab.Checked;
-            sala.NumCadeiras = Convert.ToInt32(txtNumCadeira.Text);
-            sala.NumComputadores = Convert.ToInt32(txtNumPc.Text);
-            sala.Disponivel = chkDisponivel.Checked;
+            DisciplinaEntidade disciplina = new DisciplinaEntidade();
+            disciplina.Id = Convert.ToInt32(txtId.Text);
+            disciplina.Nome = txtNome.Text;
+            disciplina.Sigla = txtSigla.Text;
+            disciplina.Ativo = chkAtivo.Checked;
 
-            dados.Add(sala);
+            dados.Add(disciplina);
         }
     }
 }

@@ -11,10 +11,10 @@ using Model.Entidades;
 
 namespace MapadeSala.Formularios
 {
-    public partial class frmSalas : Form
+    public partial class frmUsuario : Form
     {
         BindingSource dados;
-        public frmSalas()
+        public frmUsuario()
         {
             InitializeComponent();
             dados = new BindingSource();
@@ -22,15 +22,14 @@ namespace MapadeSala.Formularios
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            SalasEntidade sala = new SalasEntidade();
-            sala.Id = Convert.ToInt32(txtId.Text);
-            sala.Nome = txtNome.Text;
-            sala.IsLab = chkIsLab.Checked;
-            sala.NumCadeiras = Convert.ToInt32(txtNumCadeira.Text);
-            sala.NumComputadores = Convert.ToInt32(txtNumPc.Text);
-            sala.Disponivel = chkDisponivel.Checked;
+            UsuarioEntidade usuario = new UsuarioEntidade();
+            usuario.Id = Convert.ToInt32(txtId.Text);
+            usuario.Login = txtLogin.Text;
+            usuario.Senha = txtSenha.Text;
+            usuario.Nome = txtNome.Text;
+            usuario.Ativo = chkAtivo.Checked;
 
-            dados.Add(sala);
+            dados.Add(usuario);
         }
     }
 }

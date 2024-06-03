@@ -49,6 +49,7 @@ namespace MapadeSala
             this.faltasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,8 @@ namespace MapadeSala
             this.disciplinasToolStripMenuItem,
             this.horáriosToolStripMenuItem,
             this.cursosToolStripMenuItem,
-            this.diasDaSemanaToolStripMenuItem});
+            this.diasDaSemanaToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
             this.registroToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.registroToolStripMenuItem.Text = "Registro";
@@ -90,12 +92,14 @@ namespace MapadeSala
             this.professoresToolStripMenuItem.Name = "professoresToolStripMenuItem";
             this.professoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.professoresToolStripMenuItem.Text = "Professores";
+            this.professoresToolStripMenuItem.Click += new System.EventHandler(this.professoresToolStripMenuItem_Click);
             // 
             // disciplinasToolStripMenuItem
             // 
             this.disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
             this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.disciplinasToolStripMenuItem.Text = "Disciplinas";
+            this.disciplinasToolStripMenuItem.Click += new System.EventHandler(this.disciplinasToolStripMenuItem_Click);
             // 
             // horáriosToolStripMenuItem
             // 
@@ -108,6 +112,7 @@ namespace MapadeSala
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
             this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
+            this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
             // diasDaSemanaToolStripMenuItem
             // 
@@ -197,6 +202,13 @@ namespace MapadeSala
             this.todosProfessoresToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.todosProfessoresToolStripMenuItem.Text = "Todos Professores";
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,5 +250,6 @@ namespace MapadeSala
         private System.Windows.Forms.ToolStripMenuItem faltasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salasLivresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosProfessoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
     }
 }

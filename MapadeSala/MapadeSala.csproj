@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\frmCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCursos.Designer.cs">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmDisciplinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmDisciplinas.Designer.cs">
+      <DependentUpon>frmDisciplinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmProfessores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmProfessores.Designer.cs">
+      <DependentUpon>frmProfessores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmSalas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmSalas.Designer.cs">
       <DependentUpon>frmSalas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -58,22 +82,25 @@
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Professor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Professor.Designer.cs">
-      <DependentUpon>Professor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\frmCursos.resx">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmDisciplinas.resx">
+      <DependentUpon>frmDisciplinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmProfessores.resx">
+      <DependentUpon>frmProfessores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSalas.resx">
       <DependentUpon>frmSalas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Professor.resx">
-      <DependentUpon>Professor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,6 +128,11 @@
   <ItemGroup>
     <None Include="Resources\minezin.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{B4C1C8A1-F823-4158-9764-3AC1EDB661DD}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
