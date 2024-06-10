@@ -25,7 +25,7 @@ namespace MapadeSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             DisciplinaEntidade disciplina = new DisciplinaEntidade();
-            disciplina.Id = Convert.ToInt32(txtId.Text);
+            disciplina.Id = Convert.ToInt32(numId.Value);
             disciplina.Nome = txtNome.Text;
             disciplina.Sigla = txtSigla.Text;
             disciplina.Ativo = chkAtivo.Checked;

@@ -23,11 +23,11 @@ namespace MapadeSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             SalasEntidade sala = new SalasEntidade();
-            sala.Id = Convert.ToInt32(txtId.Text);
+            sala.Id = Convert.ToInt32(numId.Value);
             sala.Nome = txtNome.Text;
             sala.IsLab = chkIsLab.Checked;
-            sala.NumCadeiras = Convert.ToInt32(txtNumCadeira.Text);
-            sala.NumComputadores = Convert.ToInt32(txtNumPc.Text);
+            sala.NumCadeiras = Convert.ToInt32(numChair.Text);
+            sala.NumComputadores = Convert.ToInt32(numNumPc.Value);
             sala.Disponivel = chkDisponivel.Checked;
 
             dados.Add(sala);

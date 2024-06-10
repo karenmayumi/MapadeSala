@@ -24,9 +24,9 @@ namespace MapadeSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             ProfessoresEntidade prof = new ProfessoresEntidade();
-            prof.Id = Convert.ToInt32(txtId.Text);
+            prof.Id = Convert.ToInt32(numId.Value);
             prof.Nome = txtNome.Text;
-            prof.Apelido = txtNome.Text;
+            prof.Apelido = txtApelido.Text;
 
             dados.Add(prof);
         }

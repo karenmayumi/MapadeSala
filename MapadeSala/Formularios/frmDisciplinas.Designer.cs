@@ -36,9 +36,10 @@ namespace MapadeSala.Formularios
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.numId = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
             // 
             // chkAtivo
@@ -101,13 +102,6 @@ namespace MapadeSala.Formularios
             this.label2.TabIndex = 36;
             this.label2.Text = "Nome";
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(44, 68);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(63, 20);
-            this.txtId.TabIndex = 35;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -117,11 +111,19 @@ namespace MapadeSala.Formularios
             this.label1.TabIndex = 34;
             this.label1.Text = "id";
             // 
+            // numId
+            // 
+            this.numId.Location = new System.Drawing.Point(46, 68);
+            this.numId.Name = "numId";
+            this.numId.Size = new System.Drawing.Size(71, 20);
+            this.numId.TabIndex = 43;
+            // 
             // frmDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numId);
             this.Controls.Add(this.chkAtivo);
             this.Controls.Add(this.dtGridSalas);
             this.Controls.Add(this.btnSalvar);
@@ -129,11 +131,11 @@ namespace MapadeSala.Formularios
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
             this.Name = "frmDisciplinas";
             this.Text = "frmDisciplinas";
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,7 +150,7 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numId;
     }
 }

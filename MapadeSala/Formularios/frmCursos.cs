@@ -24,7 +24,7 @@ namespace MapadeSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             CursosEntidade cursos = new CursosEntidade();
-            cursos.Id = Convert.ToInt32(txtId.Text);
+            cursos.Id = Convert.ToInt32(numId.Value);
             cursos.Nome = txtNome.Text;
             cursos.Turno = txtTurno.Text;
             cursos.Ativo = chkAtivo.Checked;

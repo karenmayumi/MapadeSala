@@ -23,7 +23,7 @@ namespace MapadeSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             UsuarioEntidade usuario = new UsuarioEntidade();
-            usuario.Id = Convert.ToInt32(txtId.Text);
+            usuario.Id = Convert.ToInt32(numId.Text);
             usuario.Login = txtLogin.Text;
             usuario.Senha = txtSenha.Text;
             usuario.Nome = txtNome.Text;

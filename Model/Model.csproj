@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\CursosEntidade.cs" />
+    <Compile Include="Entidades\DiadaSemana.cs" />
     <Compile Include="Entidades\DisciplinaEntidade.cs" />
     <Compile Include="Entidades\ProfessoresEntidade.cs" />
     <Compile Include="Entidades\SalasEntidade.cs" />
