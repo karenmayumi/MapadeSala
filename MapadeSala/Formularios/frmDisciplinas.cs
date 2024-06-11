@@ -8,18 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
+using MapadeSala.Ferramentas;
 
 namespace MapadeSala.Formularios
 {
     public partial class frmDisciplinas : Form
     {
 
-        BindingSource dados;
+        DataTable dados;
+        int LinhaSelecionada;
         public frmDisciplinas()
         {
             InitializeComponent();
             dados = new BindingSource();
-            dtGridSalas.DataSource = dados;
+            dtGridDisciplina.DataSource = dados;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -31,6 +33,20 @@ namespace MapadeSala.Formularios
             disciplina.Ativo = chkAtivo.Checked;
 
             dados.Add(disciplina);
+
+            Comandos c = new Comandos();
+            List<object[]> Inputs = new List<object[]>();
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { txtSigla, "txt" });
+            Inputs.Add(new object[] { chkAtivo, "chk" });
+
+            c.ClearInsertForm(Inputs);
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
         }
     }
 }

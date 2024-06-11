@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
+using MapadeSala.Ferramentas;
 
 namespace MapadeSala.Formularios
 {
@@ -31,6 +32,18 @@ namespace MapadeSala.Formularios
             sala.Disponivel = chkDisponivel.Checked;
 
             dados.Add(sala);
+
+            Comandos c = new Comandos();
+            List<object[]> Inputs = new List<object[]>();
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { chkIsLab, "chk" });
+            Inputs.Add(new object[] { numChair, "num" });
+            Inputs.Add(new object[] { numNumPc, "num" });
+            Inputs.Add(new object[] { chkDisponivel, "chk" });
+
+            c.ClearInsertForm(Inputs);
+
         }
     }
 }

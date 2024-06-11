@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
+using MapadeSala.Ferramentas;
 
 namespace MapadeSala.Formularios
 {
@@ -30,6 +31,16 @@ namespace MapadeSala.Formularios
             usuario.Ativo = chkAtivo.Checked;
 
             dados.Add(usuario);
+
+            Comandos c = new Comandos();
+            List<object[]> Inputs = new List<object[]>();
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtLogin, "txt" });
+            Inputs.Add(new object[] { txtSenha, "txt" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { chkAtivo, "chk" });
+
+            c.ClearInsertForm(Inputs);
         }
     }
 }

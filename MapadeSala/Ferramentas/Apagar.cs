@@ -15,17 +15,17 @@ namespace MapadeSala.Ferramentas
         public void ClearInsertForm(List<object[]> Inputs)
         {
 
-            foreach(object[] Input in Inputs)
+            foreach(object[] Item in Inputs)
             {
-                if (Convert.ToString(Input[1]) == "txt")
+                if (Convert.ToString(Item[1]) == "txt")
                 {
                     ((TextBox)Input[0]).Text = "";
-                }else if(Convert.ToString(Input[1]) == "chk")
+                }else if(Convert.ToString(Item[1]) == "chk")
                 {
                     ((CheckBox)Input[0]).Checked = false;
-                }else if(Convert.ToString(Input[1]) == "num")
+                }else if(Convert.ToString(Item[1]) == "num")
                 {
-                    ((NumericUpDown)Input[0]).Value = 0;
+                    ((NumericUpDown)Item[0]).Value = 0;
                 }
                 else
                 {

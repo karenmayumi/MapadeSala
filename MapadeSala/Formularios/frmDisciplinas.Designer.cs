@@ -30,7 +30,7 @@ namespace MapadeSala.Formularios
         private void InitializeComponent()
         {
             this.chkAtivo = new System.Windows.Forms.CheckBox();
-            this.dtGridSalas = new System.Windows.Forms.DataGridView();
+            this.dtGridDisciplina = new System.Windows.Forms.DataGridView();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtSigla = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,7 +38,8 @@ namespace MapadeSala.Formularios
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numId = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,13 +53,13 @@ namespace MapadeSala.Formularios
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
-            // dtGridSalas
+            // dtGridDisciplina
             // 
-            this.dtGridSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridSalas.Location = new System.Drawing.Point(35, 106);
-            this.dtGridSalas.Name = "dtGridSalas";
-            this.dtGridSalas.Size = new System.Drawing.Size(727, 303);
-            this.dtGridSalas.TabIndex = 41;
+            this.dtGridDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridDisciplina.Location = new System.Drawing.Point(35, 106);
+            this.dtGridDisciplina.Name = "dtGridDisciplina";
+            this.dtGridDisciplina.Size = new System.Drawing.Size(727, 303);
+            this.dtGridDisciplina.TabIndex = 41;
             // 
             // btnSalvar
             // 
@@ -118,14 +119,25 @@ namespace MapadeSala.Formularios
             this.numId.Size = new System.Drawing.Size(71, 20);
             this.numId.TabIndex = 43;
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(690, 36);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 44;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // frmDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.numId);
             this.Controls.Add(this.chkAtivo);
-            this.Controls.Add(this.dtGridSalas);
+            this.Controls.Add(this.dtGridDisciplina);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.label3);
@@ -134,7 +146,7 @@ namespace MapadeSala.Formularios
             this.Controls.Add(this.label1);
             this.Name = "frmDisciplinas";
             this.Text = "frmDisciplinas";
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,7 +156,7 @@ namespace MapadeSala.Formularios
         #endregion
 
         private System.Windows.Forms.CheckBox chkAtivo;
-        private System.Windows.Forms.DataGridView dtGridSalas;
+        private System.Windows.Forms.DataGridView dtGridDisciplina;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtSigla;
         private System.Windows.Forms.Label label3;
@@ -152,5 +164,6 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numId;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
