@@ -19,10 +19,10 @@ namespace MapadeSala.Ferramentas
             {
                 if (Convert.ToString(Item[1]) == "txt")
                 {
-                    ((TextBox)Input[0]).Text = "";
+                    ((TextBox)Item[0]).Text = "";
                 }else if(Convert.ToString(Item[1]) == "chk")
                 {
-                    ((CheckBox)Input[0]).Checked = false;
+                    ((CheckBox)Item[0]).Checked = false;
                 }else if(Convert.ToString(Item[1]) == "num")
                 {
                     ((NumericUpDown)Item[0]).Value = 0;
