@@ -14,14 +14,20 @@ namespace MapadeSala.Formularios
 {
     public partial class frmSalas : Form
     {
-        BindingSource dados;
+        DataTable dados;
+        int LinhaSelecionada;
         public frmSalas()
         {
             InitializeComponent();
-            dados = new BindingSource();
+            dados = new DataTable();
+            foreach (var atributos in typeof(SalasEntidade).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+
             dtGridSalas.DataSource = dados;
         }
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e) //criar
         {
             SalasEntidade sala = new SalasEntidade();
             sala.Id = Convert.ToInt32(numId.Value);
@@ -31,7 +37,7 @@ namespace MapadeSala.Formularios
             sala.NumComputadores = Convert.ToInt32(numNumPc.Value);
             sala.Disponivel = chkDisponivel.Checked;
 
-            dados.Add(sala);
+            dados.Rows.Add(sala.Linha());
 
             Comandos c = new Comandos();
             List<object[]> Inputs = new List<object[]>();
@@ -44,6 +50,49 @@ namespace MapadeSala.Formularios
 
             c.ClearInsertForm(Inputs);
 
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            dtGridSalas.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            numId.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value.ToString());
+            txtNome.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            numNumPc.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value.ToString());
+            numChair.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value.ToString());
+            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value.ToString());
+            chkIsLab.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value.ToString());
+        }
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
+        {
+            DataGridViewRow linha = dtGridSalas.Rows[LinhaSelecionada];
+
+            linha.Cells[0].Value = numId.Value;
+            linha.Cells[1].Value = txtNome.Text;
+            linha.Cells[2].Value = numNumPc.Value;
+            linha.Cells[3].Value = numChair.Value;
+            linha.Cells[4].Value = chkDisponivel.Checked;
+            linha.Cells[5].Value = chkIsLab.Checked;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            //limpar campos
+            Comandos c = new Comandos();
+            List<object[]> Inputs = new List<object[]>();
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { numNumPc, "num" });
+            Inputs.Add(new object[] { numChair, "num" });
+            Inputs.Add(new object[] { chkDisponivel, "chk" });
+            Inputs.Add(new object[] { chkIsLab, "chk" });
+
+            c.ClearInsertForm(Inputs);
         }
     }
 }

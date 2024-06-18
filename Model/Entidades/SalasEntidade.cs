@@ -14,5 +14,9 @@ namespace Model.Entidades
         public int NumCadeiras { get; set; }
         public bool IsLab { get; set; }
         public bool Disponivel { get; set; }
+        public object[] Linha()
+        {
+            return new object[] { Id, Nome, NumComputadores, NumCadeiras, IsLab, Disponivel };
+        }
     }
 }

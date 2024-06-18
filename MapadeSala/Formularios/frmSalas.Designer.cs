@@ -36,11 +36,14 @@ namespace MapadeSala.Formularios
             this.label4 = new System.Windows.Forms.Label();
             this.chkIsLab = new System.Windows.Forms.CheckBox();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnCriar = new System.Windows.Forms.Button();
             this.dtGridSalas = new System.Windows.Forms.DataGridView();
             this.numId = new System.Windows.Forms.NumericUpDown();
             this.numNumPc = new System.Windows.Forms.NumericUpDown();
             this.numChair = new System.Windows.Forms.NumericUpDown();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNumPc)).BeginInit();
@@ -93,7 +96,7 @@ namespace MapadeSala.Formularios
             // chkIsLab
             // 
             this.chkIsLab.AutoSize = true;
-            this.chkIsLab.Location = new System.Drawing.Point(459, 59);
+            this.chkIsLab.Location = new System.Drawing.Point(463, 58);
             this.chkIsLab.Name = "chkIsLab";
             this.chkIsLab.Size = new System.Drawing.Size(85, 17);
             this.chkIsLab.TabIndex = 8;
@@ -103,22 +106,22 @@ namespace MapadeSala.Formularios
             // chkDisponivel
             // 
             this.chkDisponivel.AutoSize = true;
-            this.chkDisponivel.Location = new System.Drawing.Point(550, 59);
+            this.chkDisponivel.Location = new System.Drawing.Point(463, 39);
             this.chkDisponivel.Name = "chkDisponivel";
             this.chkDisponivel.Size = new System.Drawing.Size(101, 17);
             this.chkDisponivel.TabIndex = 9;
             this.chkDisponivel.Text = "Está Disponível";
             this.chkDisponivel.UseVisualStyleBackColor = true;
             // 
-            // btnSalvar
+            // btnCriar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(682, 59);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 10;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnCriar.Location = new System.Drawing.Point(682, 59);
+            this.btnCriar.Name = "btnCriar";
+            this.btnCriar.Size = new System.Drawing.Size(75, 23);
+            this.btnCriar.TabIndex = 10;
+            this.btnCriar.Text = "Criar";
+            this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dtGridSalas
             // 
@@ -127,6 +130,7 @@ namespace MapadeSala.Formularios
             this.dtGridSalas.Name = "dtGridSalas";
             this.dtGridSalas.Size = new System.Drawing.Size(727, 303);
             this.dtGridSalas.TabIndex = 11;
+            this.dtGridSalas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellClick);
             // 
             // numId
             // 
@@ -149,16 +153,49 @@ namespace MapadeSala.Formularios
             this.numChair.Size = new System.Drawing.Size(103, 20);
             this.numChair.TabIndex = 15;
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(601, 33);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 52;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(589, 59);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(87, 23);
+            this.btnLimpar.TabIndex = 51;
+            this.btnLimpar.Text = "Limpar Campo";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(682, 33);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 50;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // frmSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.numChair);
             this.Controls.Add(this.numNumPc);
             this.Controls.Add(this.numId);
             this.Controls.Add(this.dtGridSalas);
-            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.chkDisponivel);
             this.Controls.Add(this.chkIsLab);
             this.Controls.Add(this.label4);
@@ -187,10 +224,13 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkIsLab;
         private System.Windows.Forms.CheckBox chkDisponivel;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnCriar;
         private System.Windows.Forms.DataGridView dtGridSalas;
         private System.Windows.Forms.NumericUpDown numId;
         private System.Windows.Forms.NumericUpDown numNumPc;
         private System.Windows.Forms.NumericUpDown numChair;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

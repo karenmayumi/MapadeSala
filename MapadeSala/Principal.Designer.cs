@@ -37,6 +37,7 @@ namespace MapadeSala
             this.horáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasDaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,7 +50,6 @@ namespace MapadeSala
             this.faltasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +105,7 @@ namespace MapadeSala
             // 
             this.horáriosToolStripMenuItem.Name = "horáriosToolStripMenuItem";
             this.horáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.horáriosToolStripMenuItem.Text = "Horários";
+            this.horáriosToolStripMenuItem.Text = "Horários x";
             // 
             // cursosToolStripMenuItem
             // 
@@ -118,7 +118,14 @@ namespace MapadeSala
             // 
             this.diasDaSemanaToolStripMenuItem.Name = "diasDaSemanaToolStripMenuItem";
             this.diasDaSemanaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.diasDaSemanaToolStripMenuItem.Text = "Dias da Semana";
+            this.diasDaSemanaToolStripMenuItem.Text = "Dias da Semana x";
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -201,13 +208,6 @@ namespace MapadeSala
             this.todosProfessoresToolStripMenuItem.Name = "todosProfessoresToolStripMenuItem";
             this.todosProfessoresToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.todosProfessoresToolStripMenuItem.Text = "Todos Professores";
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // Principal
             // 

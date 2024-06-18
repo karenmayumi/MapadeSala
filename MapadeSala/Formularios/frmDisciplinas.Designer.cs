@@ -31,7 +31,7 @@ namespace MapadeSala.Formularios
         {
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.dtGridDisciplina = new System.Windows.Forms.DataGridView();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnCriar = new System.Windows.Forms.Button();
             this.txtSigla = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -40,7 +40,7 @@ namespace MapadeSala.Formularios
             this.numId = new System.Windows.Forms.NumericUpDown();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
@@ -64,15 +64,15 @@ namespace MapadeSala.Formularios
             this.dtGridDisciplina.TabIndex = 41;
             this.dtGridDisciplina.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridDisciplina_CellClick);
             // 
-            // btnSalvar
+            // btnCriar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(690, 62);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 40;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnCriar.Location = new System.Drawing.Point(690, 62);
+            this.btnCriar.Name = "btnCriar";
+            this.btnCriar.Size = new System.Drawing.Size(75, 23);
+            this.btnCriar.TabIndex = 40;
+            this.btnCriar.Text = "Criar";
+            this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // txtSigla
             // 
@@ -134,36 +134,36 @@ namespace MapadeSala.Formularios
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(609, 62);
+            this.btnLimpar.Location = new System.Drawing.Point(597, 62);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.Size = new System.Drawing.Size(87, 23);
             this.btnLimpar.TabIndex = 45;
-            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.Text = "Limpar Campo";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // btnEditar
+            // btnSalvar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(609, 36);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 46;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnSalvar.Location = new System.Drawing.Point(609, 36);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 46;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // frmDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.numId);
             this.Controls.Add(this.chkAtivo);
             this.Controls.Add(this.dtGridDisciplina);
-            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
@@ -182,7 +182,7 @@ namespace MapadeSala.Formularios
 
         private System.Windows.Forms.CheckBox chkAtivo;
         private System.Windows.Forms.DataGridView dtGridDisciplina;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnCriar;
         private System.Windows.Forms.TextBox txtSigla;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
@@ -191,6 +191,6 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.NumericUpDown numId;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }

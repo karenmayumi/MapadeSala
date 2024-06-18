@@ -29,26 +29,30 @@ namespace MapadeSala.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtGridSalas = new System.Windows.Forms.DataGridView();
+            this.dtGridCursos = new System.Windows.Forms.DataGridView();
             this.txtTurno = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnCriar = new System.Windows.Forms.Button();
             this.numId = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtGridSalas
+            // dtGridCursos
             // 
-            this.dtGridSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridSalas.Location = new System.Drawing.Point(35, 106);
-            this.dtGridSalas.Name = "dtGridSalas";
-            this.dtGridSalas.Size = new System.Drawing.Size(727, 303);
-            this.dtGridSalas.TabIndex = 31;
+            this.dtGridCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridCursos.Location = new System.Drawing.Point(35, 106);
+            this.dtGridCursos.Name = "dtGridCursos";
+            this.dtGridCursos.Size = new System.Drawing.Size(727, 303);
+            this.dtGridCursos.TabIndex = 31;
+            this.dtGridCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridCursos_CellClick);
             // 
             // txtTurno
             // 
@@ -101,15 +105,15 @@ namespace MapadeSala.Formularios
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
-            // btnSalvar
+            // btnCriar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(690, 62);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 30;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnCriar.Location = new System.Drawing.Point(690, 62);
+            this.btnCriar.Name = "btnCriar";
+            this.btnCriar.Size = new System.Drawing.Size(75, 23);
+            this.btnCriar.TabIndex = 30;
+            this.btnCriar.Text = "Criar";
+            this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
             // numId
             // 
@@ -118,15 +122,48 @@ namespace MapadeSala.Formularios
             this.numId.Size = new System.Drawing.Size(73, 20);
             this.numId.TabIndex = 34;
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(609, 36);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 49;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(597, 62);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(87, 23);
+            this.btnLimpar.TabIndex = 48;
+            this.btnLimpar.Text = "Limpar Campo";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(690, 36);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 47;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // frmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.numId);
             this.Controls.Add(this.chkAtivo);
-            this.Controls.Add(this.dtGridSalas);
-            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.dtGridCursos);
+            this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.txtTurno);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
@@ -134,7 +171,7 @@ namespace MapadeSala.Formularios
             this.Controls.Add(this.label1);
             this.Name = "frmCursos";
             this.Text = "frmCursos";
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,14 +180,17 @@ namespace MapadeSala.Formularios
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dtGridSalas;
+        private System.Windows.Forms.DataGridView dtGridCursos;
         private System.Windows.Forms.TextBox txtTurno;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkAtivo;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnCriar;
         private System.Windows.Forms.NumericUpDown numId;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

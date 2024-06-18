@@ -11,5 +11,9 @@ namespace Model.Entidades
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Apelido { get; set; }
+        public object[] Linha()
+        {
+            return new object[] { Id, Nome, Apelido };
+        }
     }
 }

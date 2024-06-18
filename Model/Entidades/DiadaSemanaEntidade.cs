@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model.Entidades
 {
-    public class DiadaSemana
+    public class DiadaSemanaEntidade
     {
         public string Dia { get; set; }
+        public object[] Linha()
+        {
+            return new object[] { Dia };
+        }
     }
 }
