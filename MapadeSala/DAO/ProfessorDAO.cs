@@ -20,8 +20,15 @@ namespace MapadeSala.DAO
         public void Inserir(ProfessoresEntidade professor)
         {
             Conexao.Open();
-            string Query = "INSERT into Professores VALUES (NULL, 'Fernando','Fernandeco'); ";
+            string Query = "INSERT into Professores (Nome, Apelido) VALUES (NULL, @nome,@apelido); ";
+            SqlCommand Comando = new SqlCommand(Query, Conexao);
+            SqlParameter par1 = new SqlParameter("@nome", professor.Nome);
+            SqlParameter par2 = new SqlParameter("@apelido", professor.Apelido);
 
+            Comando.Parameters.Add(par1);
+            Comando.Parameters.Add(par2);
+            Comando.ExecuteNonQuery();
+            Conexao.Close();
         }
     }
 }
