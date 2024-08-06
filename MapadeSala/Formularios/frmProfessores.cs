@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
+using MapadeSala.DAO;
 
 namespace MapadeSala.Formularios
 {
     public partial class frmProfessores : Form
     {
         DataTable dados;
+        ProfessorDAO dao = new ProfessorDAO();
         int LinhaSelecionada;
         public frmProfessores()
         {
@@ -26,6 +28,7 @@ namespace MapadeSala.Formularios
             }
 
             dtGridProfessores.DataSource = dados;
+            dados = dao.ObterProfessores();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) //criar
@@ -36,6 +39,11 @@ namespace MapadeSala.Formularios
             prof.Apelido = txtApelido.Text;
 
             dados.Rows.Add(prof.Linha());
+
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Inserir(prof);
+
+            dtGridProfessores.DataSource = dao.ObterProfessores();
 
             Comandos c = new Comandos();
             List<object[]> Inputs = new List<object[]>();
