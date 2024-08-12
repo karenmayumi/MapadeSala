@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
+using MapadeSala.DAO;
 
 namespace MapadeSala.Formularios
 {
     public partial class frmCursos : Form
     {
         DataTable dados;
+        CursoDAO dao = new CursoDAO();
         int LinhaSelecionada;
         public frmCursos()
         {
@@ -26,6 +28,7 @@ namespace MapadeSala.Formularios
             }
 
             dtGridCursos.DataSource = dados;
+            dados = dao.ObterCursos();
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -60,7 +63,8 @@ namespace MapadeSala.Formularios
             linha.Cells[0].Value = numId.Value;
             linha.Cells[1].Value = txtNome.Text;
             linha.Cells[2].Value = txtTurno.Text;
-            linha.Cells[3].Value = chkAtivo.Checked;
+            linha.Cells[3].Value = txtTurno.Text;
+            linha.Cells[4].Value = chkAtivo.Checked;
         }
 
         private void btnCriar_Click(object sender, EventArgs e)
@@ -69,18 +73,26 @@ namespace MapadeSala.Formularios
             cursos.Id = Convert.ToInt32(numId.Value);
             cursos.Nome = txtNome.Text;
             cursos.Turno = txtTurno.Text;
+            cursos.Sigla = txtSigla.Text;
             cursos.Ativo = chkAtivo.Checked;
 
             dados.Rows.Add(cursos.Linha());
+
+            CursoDAO dao = new CursoDAO();
+            dao.Inserir(cursos);
+
+            dtGridCursos.DataSource = dao.ObterCursos();
 
             Comandos c = new Comandos();
             List<object[]> Inputs = new List<object[]>();
             Inputs.Add(new object[] { numId, "num" });
             Inputs.Add(new object[] { txtNome, "txt" });
             Inputs.Add(new object[] { txtTurno, "txt" });
+            Inputs.Add(new object[] { txtSigla, "txt" });
             Inputs.Add(new object[] { chkAtivo, "chk" });
 
             c.ClearInsertForm(Inputs);
         }
+
     }
 }
