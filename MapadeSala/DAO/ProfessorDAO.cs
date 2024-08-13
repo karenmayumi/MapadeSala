@@ -31,6 +31,17 @@ namespace MapadeSala.DAO
             Comando.ExecuteNonQuery();
             Conexao.Close();
         }
+        public void Excluir(int indexProfessor)
+        {
+            Conexao.Open();
+            string Query = "DELETE FROM Professores WHERE id = @id; ";
+            SqlCommand Comando = new SqlCommand(Query, Conexao);
+            SqlParameter par1 = new SqlParameter("@id", indexProfessor);
+
+            Comando.Parameters.Add(par1);
+            Comando.ExecuteNonQuery();
+            Conexao.Close();
+        }
         public DataTable ObterProfessores()
         {
             DataTable retorno = new DataTable();

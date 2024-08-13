@@ -18,17 +18,27 @@ namespace MapadeSala.Formularios
         DataTable dados;
         ProfessorDAO dao = new ProfessorDAO();
         int LinhaSelecionada;
+
+        List<object[]> Inputs = new List<object[]>();
+        Comandos c = new Comandos();
+
         public frmProfessores()
         {
             InitializeComponent();
+
+            //Inserindo os campos do input para limpá-los
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { txtApelido, "txt" });
+
             dados = new DataTable();
             foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
             {
                 dados.Columns.Add(atributos.Name);
             }
 
-            dtGridProfessores.DataSource = dados;
             dados = dao.ObterProfessores();
+            dtGridProfessores.DataSource = dados;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) //criar
@@ -45,17 +55,14 @@ namespace MapadeSala.Formularios
 
             dtGridProfessores.DataSource = dao.ObterProfessores();
 
-            Comandos c = new Comandos();
-            List<object[]> Inputs = new List<object[]>();
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtApelido, "txt" });
-
             c.ClearInsertForm(Inputs);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Excluir(LinhaSelecionada);
+
             dtGridProfessores.Rows.RemoveAt(LinhaSelecionada);
         }
 
@@ -78,13 +85,8 @@ namespace MapadeSala.Formularios
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            //limpar campos
-            Comandos c = new Comandos();
-            List<object[]> Inputs = new List<object[]>();
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtApelido, "txt" });
             c.ClearInsertForm(Inputs);
         }
+
     }
 }

@@ -88,5 +88,6 @@ namespace MapadeSala.Formularios
             txtNome.Text = dtGridUsuario.Rows[LinhaSelecionada].Cells[2].Value.ToString();
             chkAtivo.Checked = Convert.ToBoolean(dtGridUsuario.Rows[LinhaSelecionada].Cells[3].Value.ToString());
         }
+
     }
 }

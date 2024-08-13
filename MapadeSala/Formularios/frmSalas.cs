@@ -16,6 +16,7 @@ namespace MapadeSala.Formularios
     {
         DataTable dados;
         int LinhaSelecionada;
+        Comandos c = new Comandos();
         public frmSalas()
         {
             InitializeComponent();
@@ -39,7 +40,6 @@ namespace MapadeSala.Formularios
 
             dados.Rows.Add(sala.Linha());
 
-            Comandos c = new Comandos();
             List<object[]> Inputs = new List<object[]>();
             Inputs.Add(new object[] { numId, "num" });
             Inputs.Add(new object[] { txtNome, "txt" });

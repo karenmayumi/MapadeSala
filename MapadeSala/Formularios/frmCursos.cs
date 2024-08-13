@@ -27,8 +27,8 @@ namespace MapadeSala.Formularios
                 dados.Columns.Add(atributos.Name);
             }
 
-            dtGridCursos.DataSource = dados;
             dados = dao.ObterCursos();
+            dtGridCursos.DataSource = dados;
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -53,7 +53,8 @@ namespace MapadeSala.Formularios
             numId.Value = Convert.ToInt32(dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value.ToString());
             txtNome.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[1].Value.ToString();
             txtTurno.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            chkAtivo.Checked = Convert.ToBoolean(dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value.ToString());
+            txtSigla.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value.ToString();
+            chkAtivo.Checked = Convert.ToBoolean(dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value.ToString());
         }
 
         private void btnSalvar_Click_1(object sender, EventArgs e)
