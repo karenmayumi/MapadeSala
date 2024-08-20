@@ -31,17 +31,6 @@ namespace MapadeSala.DAO
             Comando.ExecuteNonQuery();
             Conexao.Close();
         }
-        public void Excluir(int indexProfessor)
-        {
-            Conexao.Open();
-            string Query = "DELETE FROM Professores WHERE id = @id; ";
-            SqlCommand Comando = new SqlCommand(Query, Conexao);
-            SqlParameter par1 = new SqlParameter("@id", indexProfessor);
-
-            Comando.Parameters.Add(par1);
-            Comando.ExecuteNonQuery();
-            Conexao.Close();
-        }
         public DataTable ObterProfessores()
         {
             DataTable retorno = new DataTable();
@@ -67,7 +56,54 @@ namespace MapadeSala.DAO
                     retorno.Rows.Add(p.Linha());
                 }
             }
+            Conexao.Close();
+            return retorno;
+        }
+        public void ExcluirProfessor(int indexProfessor)
+        {
+            Conexao.Open();
+            string Query = "DELETE FROM Professores WHERE id = @id; ";
+            SqlCommand Comando = new SqlCommand(Query, Conexao);
+            SqlParameter par1 = new SqlParameter("@id", indexProfessor);
 
+            Comando.Parameters.Add(par1);
+            Comando.ExecuteNonQuery();
+            Conexao.Close();
+        }
+        public DataTable PesquisarProfessor(string search)
+        {
+            DataTable retorno = new DataTable();
+            Conexao.Open();
+            string query = "";
+            if (string.IsNullOrEmpty(search))
+            {
+                query = "SELECT ID, NOME, APELIDO FROM PROFESSORES ORDER BY ID DESC";
+            }
+            else
+            {
+                query = "SELECT ID, NOME, APELIDO FROM PROFESSORES WHERE NOME LIKE '%"+search+ "%' OR APELIDO LIKE '%" + search + "%' ORDER BY ID DESC";
+            }
+            SqlCommand Comando = new SqlCommand(query, Conexao);
+
+            SqlDataReader Leitura = Comando.ExecuteReader();
+
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
+            {
+                retorno.Columns.Add(atributos.Name);
+            }
+
+            if (Leitura.HasRows)
+            {
+                while (Leitura.Read())
+                {
+                    ProfessoresEntidade p = new ProfessoresEntidade();
+                    p.Id = Convert.ToInt32(Leitura[0]);
+                    p.Nome = Leitura[1].ToString();
+                    p.Apelido = Leitura[2].ToString();
+                    retorno.Rows.Add(p.Linha());
+                }
+            }
+            Conexao.Close();
             return retorno;
         }
     }

@@ -10,41 +10,39 @@ using System.Data;
 
 namespace MapadeSala.DAO
 {
-    public class CursoDAO
+    public class DisciplinaDAO
     {
         private string LinhaConexao = "Server=LS05MPF;Database=Aula_DS;User Id=SA;Password=admsasql;"; //LS05M020
         private SqlConnection Conexao;
-        public CursoDAO()
+        public DisciplinaDAO()
         {
             Conexao = new SqlConnection(LinhaConexao);
         }
-        public void Inserir(CursosEntidade curso)
+        public void InserirDisciplina(DisciplinaEntidade disciplina)
         {
             Conexao.Open();
-            string Query = "INSERT into Cursos (Nome, Turno, Sigla, Ativo) VALUES (@nome,@turno,@sigla,@ativo); ";
+            string Query = "INSERT into Disciplinas (Nome, Sigla, Ativo) VALUES (@nome,@sigla,@ativo); ";
             SqlCommand Comando = new SqlCommand(Query, Conexao);
-            SqlParameter par1 = new SqlParameter("@nome", curso.Nome);
-            SqlParameter par2 = new SqlParameter("@turno", curso.Turno);
-            SqlParameter par3 = new SqlParameter("@sigla", curso.Sigla);
-            SqlParameter par4 = new SqlParameter("@ativo", curso.Ativo);
+            SqlParameter par1 = new SqlParameter("@nome", disciplina.Nome);
+            SqlParameter par2 = new SqlParameter("@sigla", disciplina.Sigla);
+            SqlParameter par3 = new SqlParameter("@ativo", disciplina.Ativo);
 
             Comando.Parameters.Add(par1);
             Comando.Parameters.Add(par2);
             Comando.Parameters.Add(par3);
-            Comando.Parameters.Add(par4);
             Comando.ExecuteNonQuery();
             Conexao.Close();
         }
-        public DataTable ObterCursos()
+        public DataTable ObterDisciplina()
         {
             DataTable retorno = new DataTable();
             Conexao.Open();
-            string query = "SELECT ID, NOME, TURNO, SIGLA, ATIVO FROM CURSOS ORDER BY ID DESC";
+            string query = "SELECT ID, NOME, SIGLA, ATIVO FROM CURSOS ORDER BY ID DESC";
             SqlCommand Comando = new SqlCommand(query, Conexao);
 
             SqlDataReader Leitura = Comando.ExecuteReader();
 
-            foreach (var atributos in typeof(CursosEntidade).GetProperties())
+            foreach (var atributos in typeof(DisciplinaEntidade).GetProperties())
             {
                 retorno.Columns.Add(atributos.Name);
             }
@@ -56,21 +54,20 @@ namespace MapadeSala.DAO
                     CursosEntidade c = new CursosEntidade();
                     c.Id = Convert.ToInt32(Leitura[0]);
                     c.Nome = Leitura[1].ToString();
-                    c.Turno = Leitura[2].ToString();
-                    c.Sigla = Leitura[3].ToString();
-                    c.Ativo = Convert.ToBoolean( Leitura[4] );
+                    c.Sigla = Leitura[2].ToString();
+                    c.Ativo = Convert.ToBoolean(Leitura[3]);
                     retorno.Rows.Add(c.Linha());
                 }
             }
-
+            Conexao.Close();
             return retorno;
         }
-        public void ExcluirCurso(int indexCurso)
+        public void ExcluirDisciplina(int indexDisciplina)
         {
             Conexao.Open();
             string Query = "DELETE FROM Cursos WHERE id = @id; ";
             SqlCommand Comando = new SqlCommand(Query, Conexao);
-            SqlParameter par1 = new SqlParameter("@id", indexCurso);
+            SqlParameter par1 = new SqlParameter("@id", indexDisciplina);
 
             Comando.Parameters.Add(par1);
             Comando.ExecuteNonQuery();

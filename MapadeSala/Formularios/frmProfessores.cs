@@ -61,9 +61,10 @@ namespace MapadeSala.Formularios
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             ProfessorDAO dao = new ProfessorDAO();
-            dao.Excluir(LinhaSelecionada);
+            dao.ExcluirProfessor(LinhaSelecionada);
 
             dtGridProfessores.Rows.RemoveAt(LinhaSelecionada);
+            c.ClearInsertForm(Inputs);
         }
 
         private void dtGridProfessores_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -88,5 +89,9 @@ namespace MapadeSala.Formularios
             c.ClearInsertForm(Inputs);
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dtGridProfessores.DataSource = dao.PesquisarProfessor(txtSearch.Text);
+        }
     }
 }

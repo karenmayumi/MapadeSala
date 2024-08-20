@@ -40,6 +40,8 @@ namespace MapadeSala.Formularios
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProfessores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,7 @@ namespace MapadeSala.Formularios
             this.btnCriar.Location = new System.Drawing.Point(686, 127);
             this.btnCriar.Name = "btnCriar";
             this.btnCriar.Size = new System.Drawing.Size(75, 23);
-            this.btnCriar.TabIndex = 22;
+            this.btnCriar.TabIndex = 4;
             this.btnCriar.Text = "Criar";
             this.btnCriar.UseVisualStyleBackColor = true;
             this.btnCriar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -68,7 +70,7 @@ namespace MapadeSala.Formularios
             this.txtApelido.Location = new System.Drawing.Point(240, 68);
             this.txtApelido.Name = "txtApelido";
             this.txtApelido.Size = new System.Drawing.Size(100, 20);
-            this.txtApelido.TabIndex = 17;
+            this.txtApelido.TabIndex = 3;
             // 
             // label3
             // 
@@ -84,7 +86,7 @@ namespace MapadeSala.Formularios
             this.txtNome.Location = new System.Drawing.Point(126, 68);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 15;
+            this.txtNome.TabIndex = 2;
             // 
             // label2
             // 
@@ -109,7 +111,7 @@ namespace MapadeSala.Formularios
             this.numId.Location = new System.Drawing.Point(43, 68);
             this.numId.Name = "numId";
             this.numId.Size = new System.Drawing.Size(71, 20);
-            this.numId.TabIndex = 24;
+            this.numId.TabIndex = 1;
             // 
             // btnSalvar
             // 
@@ -141,11 +143,30 @@ namespace MapadeSala.Formularios
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(43, 149);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(183, 20);
+            this.txtSearch.TabIndex = 53;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(40, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Pesquisa";
+            // 
             // frmProfessores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 525);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
@@ -179,5 +200,7 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label4;
     }
 }

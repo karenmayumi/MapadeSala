@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
+using MapadeSala.DAO;
 
 namespace MapadeSala.Formularios
 {
@@ -16,9 +17,19 @@ namespace MapadeSala.Formularios
     {
         DataTable dados;
         int LinhaSelecionada;
+
+        List<object[]> Inputs = new List<object[]>();
+        Comandos c = new Comandos();
         public frmDisciplinas()
         {
             InitializeComponent();
+
+            //Inserindo os campos do input para limpá-los
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { txtSigla, "txt" });
+            Inputs.Add(new object[] { chkAtivo, "chk" });
+
             dados = new DataTable();
             foreach (var atributos in typeof(DisciplinaEntidade).GetProperties())
             {
@@ -28,7 +39,7 @@ namespace MapadeSala.Formularios
             dtGridDisciplina.DataSource = dados;
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e) //criar
         {
             DisciplinaEntidade disciplina = new DisciplinaEntidade();
             disciplina.Id = Convert.ToInt32(numId.Value);
@@ -38,19 +49,25 @@ namespace MapadeSala.Formularios
 
             dados.Rows.Add(disciplina.Linha());
 
-            //limpar campos
-            Comandos c = new Comandos();
-            List<object[]> Inputs = new List<object[]>();
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtSigla, "txt" });
-            Inputs.Add(new object[] { chkAtivo, "chk" });
+            DisciplinaDAO dao = new DisciplinaDAO();
+            dao.InserirDisciplina(disciplina);
+
             c.ClearInsertForm(Inputs);
+
+
+            dtGridDisciplina.DataSource = dao.ObterDisciplina();
+
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
+
+            DisciplinaDAO dao = new DisciplinaDAO();
+            dao.ExcluirDisciplina(LinhaSelecionada);
+
+            dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
+            c.ClearInsertForm(Inputs);
         }
 
         private void dtGridDisciplina_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -64,17 +81,10 @@ namespace MapadeSala.Formularios
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            //limpar campos
-            Comandos c = new Comandos();
-            List<object[]> Inputs = new List<object[]>();
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtSigla, "txt" });
-            Inputs.Add(new object[] { chkAtivo, "chk" });
             c.ClearInsertForm(Inputs);
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e) //salvar alteracoes
         {
             DataGridViewRow linha = dtGridDisciplina.Rows[LinhaSelecionada];
 
@@ -82,8 +92,6 @@ namespace MapadeSala.Formularios
             linha.Cells[1].Value = txtNome.Text;
             linha.Cells[2].Value = txtSigla.Text;
             linha.Cells[3].Value = chkAtivo.Checked;
-
-            // dtGridDisciplina.Rows[LinhaSelecionada] = linha;
         }
     }
 }

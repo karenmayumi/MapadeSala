@@ -18,9 +18,20 @@ namespace MapadeSala.Formularios
         DataTable dados;
         CursoDAO dao = new CursoDAO();
         int LinhaSelecionada;
+
+        List<object[]> Inputs = new List<object[]>();
+        Comandos c = new Comandos();
         public frmCursos()
         {
             InitializeComponent();
+
+            //Inserindo os campos do input para limpá-los
+            Inputs.Add(new object[] { numId, "num" });
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { txtTurno, "txt" });
+            Inputs.Add(new object[] { txtSigla, "txt" });
+            Inputs.Add(new object[] { chkAtivo, "chk" });
+
             dados = new DataTable();
             foreach (var atributos in typeof(CursosEntidade).GetProperties())
             {
@@ -32,18 +43,10 @@ namespace MapadeSala.Formularios
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            dtGridCursos.Rows.RemoveAt(LinhaSelecionada);
-        }
+            CursoDAO dao = new CursoDAO();
+            dao.ExcluirCurso(LinhaSelecionada);
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            //limpar campos
-            Comandos c = new Comandos();
-            List<object[]> Inputs = new List<object[]>();
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtTurno, "txt" });
-            Inputs.Add(new object[] { chkAtivo, "chk" });
+            dtGridCursos.Rows.RemoveAt(LinhaSelecionada);
             c.ClearInsertForm(Inputs);
         }
 
@@ -84,14 +87,10 @@ namespace MapadeSala.Formularios
 
             dtGridCursos.DataSource = dao.ObterCursos();
 
-            Comandos c = new Comandos();
-            List<object[]> Inputs = new List<object[]>();
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtTurno, "txt" });
-            Inputs.Add(new object[] { txtSigla, "txt" });
-            Inputs.Add(new object[] { chkAtivo, "chk" });
-
+            c.ClearInsertForm(Inputs);
+        }
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
             c.ClearInsertForm(Inputs);
         }
 
