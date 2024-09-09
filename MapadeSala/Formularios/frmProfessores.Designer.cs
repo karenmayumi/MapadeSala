@@ -37,7 +37,7 @@ namespace MapadeSala.Formularios
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numId = new System.Windows.Forms.NumericUpDown();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -113,15 +113,15 @@ namespace MapadeSala.Formularios
             this.numId.Size = new System.Drawing.Size(71, 20);
             this.numId.TabIndex = 1;
             // 
-            // btnSalvar
+            // btnEditar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(593, 101);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(87, 23);
-            this.btnSalvar.TabIndex = 52;
-            this.btnSalvar.Text = "Salvar Edições";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            this.btnEditar.Location = new System.Drawing.Point(593, 101);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(87, 23);
+            this.btnEditar.TabIndex = 52;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnSalvar_Click_1);
             // 
             // btnLimpar
             // 
@@ -167,7 +167,7 @@ namespace MapadeSala.Formularios
             this.ClientSize = new System.Drawing.Size(800, 525);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.numId);
@@ -197,7 +197,7 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numId;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtSearch;
