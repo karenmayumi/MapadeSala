@@ -61,7 +61,7 @@ namespace MapadeSala.DAO
         {
             DataTable retorno = new DataTable();
             Conexao.Open();
-            string query = "SELECT ID, NOME, SIGLA, ATIVO FROM CURSOS ORDER BY ID DESC";
+            string query = "SELECT ID, NOME, SIGLA, ATIVO FROM DISCIPLINAS ORDER BY ID DESC";
             SqlCommand Comando = new SqlCommand(query, Conexao);
 
             SqlDataReader Leitura = Comando.ExecuteReader();
@@ -75,11 +75,11 @@ namespace MapadeSala.DAO
             {
                 while (Leitura.Read())
                 {
-                    CursosEntidade c = new CursosEntidade();
+                    DisciplinaEntidade c = new DisciplinaEntidade();
                     c.Id = Convert.ToInt32(Leitura[0]);
                     c.Nome = Leitura[1].ToString();
                     c.Sigla = Leitura[2].ToString();
-                    c.Ativo = Convert.ToBoolean(Leitura[3]);
+                    c.Ativo = Convert.ToBoolean( Leitura[3] );
                     retorno.Rows.Add(c.Linha());
                 }
             }
@@ -89,7 +89,7 @@ namespace MapadeSala.DAO
         public void ExcluirDisciplina(int indexDisciplina)
         {
             Conexao.Open();
-            string Query = "DELETE FROM Cursos WHERE id = @id; ";
+            string Query = "DELETE FROM DISCIPLINAS WHERE id = @id; ";
             SqlCommand Comando = new SqlCommand(Query, Conexao);
             SqlParameter par1 = new SqlParameter("@id", indexDisciplina);
 
@@ -104,11 +104,11 @@ namespace MapadeSala.DAO
             string query = "";
             if (string.IsNullOrEmpty(search))
             {
-                query = "SELECT * FROM DISCIPLINA ORDER BY ID DESC";
+                query = "SELECT * FROM DISCIPLINAS ORDER BY ID DESC";
             }
             else
             {
-                query = "SELECT * FROM DISCIPLINA WHERE NOME LIKE '%" + search + "%' ORDER BY ID DESC";
+                query = "SELECT * FROM DISCIPLINAS WHERE NOME LIKE '%" + search + "%' OR SIGLA LIKE '%"+search+"%' ORDER BY ID DESC";
             }
             SqlCommand Comando = new SqlCommand(query, Conexao);
 

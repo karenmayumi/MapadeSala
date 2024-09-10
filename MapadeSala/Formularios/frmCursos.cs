@@ -94,5 +94,9 @@ namespace MapadeSala.Formularios
             c.ClearInsertForm(Inputs);
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dtGridCursos.DataSource = dao.PesquisarCursos(txtSearch.Text);
+        }
     }
 }

@@ -50,10 +50,10 @@ namespace MapadeSala.Formularios
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Location = new System.Drawing.Point(351, 62);
+            this.chkAtivo.Location = new System.Drawing.Point(350, 71);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivo.TabIndex = 42;
+            this.chkAtivo.TabIndex = 4;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
@@ -71,7 +71,7 @@ namespace MapadeSala.Formularios
             this.btnCriar.Location = new System.Drawing.Point(689, 126);
             this.btnCriar.Name = "btnCriar";
             this.btnCriar.Size = new System.Drawing.Size(75, 23);
-            this.btnCriar.TabIndex = 40;
+            this.btnCriar.TabIndex = 8;
             this.btnCriar.Text = "Criar";
             this.btnCriar.UseVisualStyleBackColor = true;
             this.btnCriar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -81,7 +81,7 @@ namespace MapadeSala.Formularios
             this.txtSigla.Location = new System.Drawing.Point(233, 68);
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(100, 20);
-            this.txtSigla.TabIndex = 39;
+            this.txtSigla.TabIndex = 3;
             // 
             // label3
             // 
@@ -97,7 +97,7 @@ namespace MapadeSala.Formularios
             this.txtNome.Location = new System.Drawing.Point(118, 68);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 37;
+            this.txtNome.TabIndex = 2;
             // 
             // label2
             // 
@@ -122,14 +122,14 @@ namespace MapadeSala.Formularios
             this.numId.Location = new System.Drawing.Point(41, 68);
             this.numId.Name = "numId";
             this.numId.Size = new System.Drawing.Size(71, 20);
-            this.numId.TabIndex = 43;
+            this.numId.TabIndex = 1;
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(689, 100);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 44;
+            this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -139,7 +139,7 @@ namespace MapadeSala.Formularios
             this.btnLimpar.Location = new System.Drawing.Point(596, 126);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(87, 23);
-            this.btnLimpar.TabIndex = 45;
+            this.btnLimpar.TabIndex = 7;
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -149,7 +149,7 @@ namespace MapadeSala.Formularios
             this.btnSalvar.Location = new System.Drawing.Point(596, 100);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(87, 23);
-            this.btnSalvar.TabIndex = 46;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar Edições";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -159,7 +159,7 @@ namespace MapadeSala.Formularios
             this.txtSearch.Location = new System.Drawing.Point(41, 146);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(183, 20);
-            this.txtSearch.TabIndex = 54;
+            this.txtSearch.TabIndex = 9;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label4

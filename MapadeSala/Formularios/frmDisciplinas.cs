@@ -32,12 +32,14 @@ namespace MapadeSala.Formularios
             Inputs.Add(new object[] { chkAtivo, "chk" });
 
             dados = new DataTable();
+
             foreach (var atributos in typeof(DisciplinaEntidade).GetProperties())
             {
                 dados.Columns.Add(atributos.Name);
             }
 
             dtGridDisciplina.DataSource = dados;
+            dtGridDisciplina.DataSource = dao.ObterDisciplina();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) //criar

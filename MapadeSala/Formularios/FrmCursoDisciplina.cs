@@ -13,11 +13,16 @@ using Model.Entidades;
 
 namespace MapadeSala.Formularios
 {
-    public partial class FrmCursoDisciplina : Form
+    public partial class frmCursoDisciplina : Form
     {
         DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
         CursoDAO cursoDAO = new CursoDAO();
-        public FrmCursoDisciplina()
+        CursoDisciplinaDAO cdDAO = new CursoDisciplinaDAO();
+        private void AtualizarGrid(DataTable dados)
+        {
+            dtCursoDisciplina.DataSource = dados;
+        }
+        public frmCursoDisciplina()
         {
             InitializeComponent();
 
@@ -28,6 +33,8 @@ namespace MapadeSala.Formularios
             cbCursos.DataSource = cursoDAO.PreencherComboBox();
             cbCursos.DisplayMember = "Nome";
             cbCursos.ValueMember = "Id";
+
+            AtualizarGrid(cdDAO.ObterCursoDisciplina());
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

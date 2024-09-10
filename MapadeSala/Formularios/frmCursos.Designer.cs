@@ -43,6 +43,8 @@ namespace MapadeSala.Formularios
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtSigla = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
@@ -170,11 +172,30 @@ namespace MapadeSala.Formularios
             this.label4.TabIndex = 50;
             this.label4.Text = "Sigla";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Pesquisa";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(36, 132);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(183, 20);
+            this.txtSearch.TabIndex = 56;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // frmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 532);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSalvar);
@@ -214,5 +235,7 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtSigla;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
