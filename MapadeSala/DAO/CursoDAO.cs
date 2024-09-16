@@ -87,7 +87,7 @@ namespace MapadeSala.DAO
                     retorno.Rows.Add(c.Linha());
                 }
             }
-
+            Conexao.Close();
             return retorno;
         }
         public void ExcluirCurso(int indexCurso)
@@ -101,18 +101,18 @@ namespace MapadeSala.DAO
             Comando.ExecuteNonQuery();
             Conexao.Close();
         }
-        public DataTable PesquisarCurso(string search)
+        public DataTable PesquisarCursos(string search)
         {
             DataTable retorno = new DataTable();
             Conexao.Open();
             string query = "";
             if (string.IsNullOrEmpty(search))
             {
-                query = "SELECT * FROM CURSO ORDER BY ID DESC";
+                query = "SELECT * FROM CURSOS ORDER BY ID DESC";
             }
             else
             {
-                query = "SELECT * FROM CURSOS WHERE NOME LIKE '%" + search + "%' OR SIGLA LIKE '%" + search + "%' ORDER BY ID DESC";
+                query = "SELECT * FROM CURSOS WHERE NOME LIKE '%" + search + "%' OR SIGLA LIKE '%" + search + "%' OR TURNO LIKE '%" + search + "%' ORDER BY ID DESC";
             }
             SqlCommand Comando = new SqlCommand(query, Conexao);
 
@@ -127,12 +127,13 @@ namespace MapadeSala.DAO
             {
                 while (Leitura.Read())
                 {
-                    DisciplinaEntidade p = new DisciplinaEntidade();
-                    p.Id = Convert.ToInt32(Leitura[0]);
-                    p.Nome = Leitura[1].ToString();
-                    p.Sigla = Leitura[2].ToString();
-                    p.Ativo = Convert.ToBoolean(Leitura[3].ToString());
-                    retorno.Rows.Add(p.Linha());
+                    CursosEntidade c = new CursosEntidade();
+                    c.Id = Convert.ToInt32(Leitura[0]);
+                    c.Nome = Leitura[1].ToString();
+                    c.Turno = Leitura[2].ToString();
+                    c.Sigla = Leitura[3].ToString();
+                    c.Ativo = Convert.ToBoolean(Leitura[4].ToString());
+                    retorno.Rows.Add(c.Linha());
                 }
             }
             Conexao.Close();

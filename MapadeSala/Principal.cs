@@ -54,5 +54,6 @@ namespace MapadeSala
             frmCursoDisciplina cd = new frmCursoDisciplina();
             cd.ShowDialog();
         }
+
     }
 }

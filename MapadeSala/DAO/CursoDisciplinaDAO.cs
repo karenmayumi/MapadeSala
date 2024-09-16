@@ -65,5 +65,79 @@ namespace MapaSala.DAO
             Conexao.Close();
             return dt;
         }
+        public DataTable PesquisarCursoDisciplina(string search) //problema
+        {
+            DataTable retorno = new DataTable();
+            Conexao.Open();
+            string query = "";
+            if (string.IsNullOrEmpty(search))
+            {
+                query = "SELECT * FROM CURSO_DISCIPLINA ORDER BY ID DESC";
+            }
+            else
+            {
+                query = @"SELECT C.NOME, CD.Periodo, D.Nome FROM Curso_Disciplina as CD 
+                            INNER JOIN CURSOS as C ON C.Id = CD.Curso_id
+                            INNER JOIN DISCIPLINAS as D ON D.Id = CD.Disciplina_id
+                            WHERE C.NOME LIKE '%" + search + "%' OR D.NOME LIKE '%" + search + "%' ORDER BY ID DESC";
+
+                //query = "SELECT * FROM CURSO_DISCIPLINA WHERE C.NOME LIKE '%" + search + "%' OR D.NOME LIKE '%" + search + "%' ORDER BY ID DESC";
+            }
+            SqlCommand Comando = new SqlCommand(query, Conexao);
+
+            SqlDataReader Leitura = Comando.ExecuteReader();
+
+            foreach (var atributos in typeof(CursoDisciplinaEntidade).GetProperties())
+            {
+                retorno.Columns.Add(atributos.Name);
+            }
+
+            if (Leitura.HasRows) //terminar aqui
+            {
+                while (Leitura.Read())
+                {
+                    CursoDisciplinaEntidade cd = new CursoDisciplinaEntidade();
+                    cd.Id = Convert.ToInt32(Leitura[0]);
+                    cd.DisciplinaId = Convert.ToInt32(Leitura[1]);
+                    cd.CursoId = Convert.ToInt32(Leitura[2]);
+                    cd.Periodo = Leitura[3].ToString();
+                    cd.NomeDisciplina = Leitura[4].ToString();
+                    cd.NomeCurso = Leitura[5].ToString();
+                    retorno.Rows.Add(cd.Linha());
+                }
+            }
+            Conexao.Close();
+            return retorno;
+        }
     }
 }
+
+
+//CURSOS
+//->PESQUISAR
+//->INSERIR
+//->LIMPAR CAMPOS
+//->EXCLUIR(SÓ NO GRID)
+//->ALTERAÇÃO(SÓ NO GRID)
+
+//PROFESSORES
+//->PESQUISAR
+//->INSERIR
+//->LIMPAR CAMPOS
+//->EXCLUIR(SÓ NO GRID)
+//->ALTERAÇÃO(SÓ NO GRID)
+
+//DISCIPLINAS
+//->PESQUISAR
+//->INSERIR
+//->LIMPAR CAMPOS
+//->EXCLUIR(DANDO ERRO, MAS NEM ERA PRA FAZER)
+//->ALTERAÇÃO(SÓ NO GRID)
+
+//SALAS
+//FZR
+
+
+//HORARIO
+//FZR
+

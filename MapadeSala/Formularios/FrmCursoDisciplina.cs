@@ -20,7 +20,7 @@ namespace MapadeSala.Formularios
         CursoDisciplinaDAO cdDAO = new CursoDisciplinaDAO();
         private void AtualizarGrid(DataTable dados)
         {
-            dtCursoDisciplina.DataSource = dados;
+            dtGridCursoDisciplina.DataSource = dados;
         }
         public frmCursoDisciplina()
         {
@@ -35,6 +35,7 @@ namespace MapadeSala.Formularios
             cbCursos.ValueMember = "Id";
 
             AtualizarGrid(cdDAO.ObterCursoDisciplina());
+
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -45,7 +46,15 @@ namespace MapadeSala.Formularios
 
             entidade.CursoId = Convert.ToInt32(cbCursos.SelectedValue);
             entidade.DisciplinaId = Convert.ToInt32(cbDisciplina.SelectedValue);
-            entidade.Periodo = cbPeriodo.SelectedValue.ToString();
+            entidade.Periodo = cbPeriodo.SelectedItem.ToString();
+
+            cursoDisciplinaDao.Inserir(entidade);
+            AtualizarGrid(cdDAO.ObterCursoDisciplina());
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dtGridCursoDisciplina.DataSource = cdDAO.PesquisarCursoDisciplina(txtSearch.Text);
         }
     }
 }

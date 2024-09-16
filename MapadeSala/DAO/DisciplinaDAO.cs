@@ -89,7 +89,7 @@ namespace MapadeSala.DAO
         public void ExcluirDisciplina(int indexDisciplina)
         {
             Conexao.Open();
-            string Query = "DELETE FROM DISCIPLINAS WHERE id = @id; ";
+            string Query = "DELETE FROM DISCIPLINA WHERE id = @id; ";
             SqlCommand Comando = new SqlCommand(Query, Conexao);
             SqlParameter par1 = new SqlParameter("@id", indexDisciplina);
 

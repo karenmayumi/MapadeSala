@@ -36,8 +36,10 @@ namespace MapadeSala.Formularios
             this.cbCursos = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbPeriodo = new System.Windows.Forms.ComboBox();
-            this.dtCursoDisciplina = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCursoDisciplina)).BeginInit();
+            this.dtGridCursoDisciplina = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCursoDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
             // cbDisciplina
@@ -96,26 +98,52 @@ namespace MapadeSala.Formularios
             // cbPeriodo
             // 
             this.cbPeriodo.FormattingEnabled = true;
+            this.cbPeriodo.Items.AddRange(new object[] {
+            "1° Ano",
+            "2° Ano",
+            "3° Ano",
+            "1° Semestre",
+            "2° Semestre",
+            "3° Semestre"});
             this.cbPeriodo.Location = new System.Drawing.Point(369, 56);
             this.cbPeriodo.Name = "cbPeriodo";
             this.cbPeriodo.Size = new System.Drawing.Size(138, 21);
             this.cbPeriodo.TabIndex = 5;
             // 
-            // dtCursoDisciplina
+            // dtGridCursoDisciplina
             // 
-            this.dtCursoDisciplina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtCursoDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtCursoDisciplina.Location = new System.Drawing.Point(37, 111);
-            this.dtCursoDisciplina.Name = "dtCursoDisciplina";
-            this.dtCursoDisciplina.Size = new System.Drawing.Size(735, 260);
-            this.dtCursoDisciplina.TabIndex = 7;
+            this.dtGridCursoDisciplina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridCursoDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridCursoDisciplina.Location = new System.Drawing.Point(37, 186);
+            this.dtGridCursoDisciplina.Name = "dtGridCursoDisciplina";
+            this.dtGridCursoDisciplina.Size = new System.Drawing.Size(735, 260);
+            this.dtGridCursoDisciplina.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(34, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 59;
+            this.label5.Text = "Pesquisa";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(37, 142);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(183, 20);
+            this.txtSearch.TabIndex = 58;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // frmCursoDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 413);
-            this.Controls.Add(this.dtCursoDisciplina);
+            this.ClientSize = new System.Drawing.Size(815, 506);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.dtGridCursoDisciplina);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbPeriodo);
             this.Controls.Add(this.label2);
@@ -125,7 +153,7 @@ namespace MapadeSala.Formularios
             this.Controls.Add(this.cbDisciplina);
             this.Name = "frmCursoDisciplina";
             this.Text = "FrmCursoDisciplina";
-            ((System.ComponentModel.ISupportInitialize)(this.dtCursoDisciplina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCursoDisciplina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +168,8 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbPeriodo;
-        private System.Windows.Forms.DataGridView dtCursoDisciplina;
+        private System.Windows.Forms.DataGridView dtGridCursoDisciplina;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
