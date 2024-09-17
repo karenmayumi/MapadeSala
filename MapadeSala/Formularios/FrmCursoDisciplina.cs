@@ -43,7 +43,6 @@ namespace MapadeSala.Formularios
             CursoDisciplinaDAO cursoDisciplinaDao = new CursoDisciplinaDAO();
 
             CursoDisciplinaEntidade entidade = new CursoDisciplinaEntidade();
-
             entidade.CursoId = Convert.ToInt32(cbCursos.SelectedValue);
             entidade.DisciplinaId = Convert.ToInt32(cbDisciplina.SelectedValue);
             entidade.Periodo = cbPeriodo.SelectedItem.ToString();

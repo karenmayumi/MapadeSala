@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
+using MapaSala.DAO;
 
 namespace MapadeSala.Formularios
 {
     public partial class frmSalas : Form
     {
         DataTable dados;
+        SalasDAO salasDAO = new SalasDAO();
         int LinhaSelecionada;
         Comandos c = new Comandos();
+        private void AtualizarGrid(DataTable dados)
+        {
+            dtGridSalas.DataSource = dados;
+        }
         public frmSalas()
         {
             InitializeComponent();
@@ -25,11 +31,11 @@ namespace MapadeSala.Formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-
-            dtGridSalas.DataSource = dados;
+            AtualizarGrid(salasDAO.ObterSalas());
         }
         private void btnSalvar_Click(object sender, EventArgs e) //criar
         {
+
             SalasEntidade sala = new SalasEntidade();
             sala.Id = Convert.ToInt32(numId.Value);
             sala.Nome = txtNome.Text;
@@ -37,6 +43,8 @@ namespace MapadeSala.Formularios
             sala.NumCadeiras = Convert.ToInt32(numChair.Text);
             sala.NumComputadores = Convert.ToInt32(numNumPc.Value);
             sala.Disponivel = chkDisponivel.Checked;
+
+            salasDAO.Inserir(sala);
 
             dados.Rows.Add(sala.Linha());
 
@@ -48,8 +56,8 @@ namespace MapadeSala.Formularios
             Inputs.Add(new object[] { numNumPc, "num" });
             Inputs.Add(new object[] { chkDisponivel, "chk" });
 
+            AtualizarGrid(salasDAO.ObterSalas());
             c.ClearInsertForm(Inputs);
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -93,6 +101,11 @@ namespace MapadeSala.Formularios
             Inputs.Add(new object[] { chkIsLab, "chk" });
 
             c.ClearInsertForm(Inputs);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dtGridSalas.DataSource = salasDAO.PesquisarSalas(txtSearch.Text);
         }
     }
 }

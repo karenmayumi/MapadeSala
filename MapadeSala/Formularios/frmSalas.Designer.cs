@@ -44,6 +44,8 @@ namespace MapadeSala.Formularios
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNumPc)).BeginInit();
@@ -183,11 +185,30 @@ namespace MapadeSala.Formularios
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "Pesquisa";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(32, 121);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(183, 20);
+            this.txtSearch.TabIndex = 60;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // frmSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 514);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
@@ -232,5 +253,7 @@ namespace MapadeSala.Formularios
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

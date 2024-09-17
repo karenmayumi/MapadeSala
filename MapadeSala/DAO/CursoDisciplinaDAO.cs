@@ -72,14 +72,17 @@ namespace MapaSala.DAO
             string query = "";
             if (string.IsNullOrEmpty(search))
             {
-                query = "SELECT * FROM CURSO_DISCIPLINA ORDER BY ID DESC";
+                query = @"SELECT D.Nome, C.NOME, CD.Periodo FROM Curso_Disciplina as CD 
+                            INNER JOIN CURSOS as C ON C.Id = CD.Curso_id
+                            INNER JOIN DISCIPLINAS as D ON D.Id = CD.Disciplina_id
+                            ORDER BY C.NOME DESC";
             }
             else
             {
-                query = @"SELECT C.NOME, CD.Periodo, D.Nome FROM Curso_Disciplina as CD 
+                query = @"SELECT D.Nome, C.NOME, CD.Periodo FROM Curso_Disciplina as CD 
                             INNER JOIN CURSOS as C ON C.Id = CD.Curso_id
                             INNER JOIN DISCIPLINAS as D ON D.Id = CD.Disciplina_id
-                            WHERE C.NOME LIKE '%" + search + "%' OR D.NOME LIKE '%" + search + "%' ORDER BY ID DESC";
+                            WHERE C.NOME LIKE '%" + search + "%' OR D.NOME LIKE '%" + search + "%' ORDER BY C.NOME DESC";
 
                 //query = "SELECT * FROM CURSO_DISCIPLINA WHERE C.NOME LIKE '%" + search + "%' OR D.NOME LIKE '%" + search + "%' ORDER BY ID DESC";
             }
@@ -87,22 +90,18 @@ namespace MapaSala.DAO
 
             SqlDataReader Leitura = Comando.ExecuteReader();
 
-            foreach (var atributos in typeof(CursoDisciplinaEntidade).GetProperties())
-            {
-                retorno.Columns.Add(atributos.Name);
-            }
+            retorno.Columns.Add("Nome Curso");
+            retorno.Columns.Add("Nome Disciplina");
+            retorno.Columns.Add("Período");
 
             if (Leitura.HasRows) //terminar aqui
             {
                 while (Leitura.Read())
                 {
                     CursoDisciplinaEntidade cd = new CursoDisciplinaEntidade();
-                    cd.Id = Convert.ToInt32(Leitura[0]);
-                    cd.DisciplinaId = Convert.ToInt32(Leitura[1]);
-                    cd.CursoId = Convert.ToInt32(Leitura[2]);
-                    cd.Periodo = Leitura[3].ToString();
-                    cd.NomeDisciplina = Leitura[4].ToString();
-                    cd.NomeCurso = Leitura[5].ToString();
+                    cd.NomeDisciplina = Leitura[0].ToString();
+                    cd.NomeCurso = Leitura[1].ToString();
+                    cd.Periodo = Leitura[2].ToString();
                     retorno.Rows.Add(cd.Linha());
                 }
             }
@@ -111,33 +110,3 @@ namespace MapaSala.DAO
         }
     }
 }
-
-
-//CURSOS
-//->PESQUISAR
-//->INSERIR
-//->LIMPAR CAMPOS
-//->EXCLUIR(SÓ NO GRID)
-//->ALTERAÇÃO(SÓ NO GRID)
-
-//PROFESSORES
-//->PESQUISAR
-//->INSERIR
-//->LIMPAR CAMPOS
-//->EXCLUIR(SÓ NO GRID)
-//->ALTERAÇÃO(SÓ NO GRID)
-
-//DISCIPLINAS
-//->PESQUISAR
-//->INSERIR
-//->LIMPAR CAMPOS
-//->EXCLUIR(DANDO ERRO, MAS NEM ERA PRA FAZER)
-//->ALTERAÇÃO(SÓ NO GRID)
-
-//SALAS
-//FZR
-
-
-//HORARIO
-//FZR
-
