@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.Entidades
 {
-    class MapadeSalaEntidade
+    public class MapadeSalaEntidade
     {
         public int Id { get; set; }
         public string Sala { get; set; }

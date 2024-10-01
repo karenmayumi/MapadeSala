@@ -16,5 +16,10 @@ namespace MapadeSala.Formularios
         {
             InitializeComponent();
         }
+
+        private void frmMapadeSala_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
