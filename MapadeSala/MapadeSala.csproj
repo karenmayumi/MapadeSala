@@ -70,6 +70,12 @@
     <Compile Include="Formularios\frmDisciplinas.Designer.cs">
       <DependentUpon>frmDisciplinas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmMapadeSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMapadeSala.Designer.cs">
+      <DependentUpon>frmMapadeSala.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmProfessores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,12 +87,6 @@
     </Compile>
     <Compile Include="Formularios\frmSalas.Designer.cs">
       <DependentUpon>frmSalas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frmUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmUsuario.Designer.cs">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -105,14 +105,14 @@
     <EmbeddedResource Include="Formularios\frmDisciplinas.resx">
       <DependentUpon>frmDisciplinas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMapadeSala.resx">
+      <DependentUpon>frmMapadeSala.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmProfessores.resx">
       <DependentUpon>frmProfessores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSalas.resx">
       <DependentUpon>frmSalas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmUsuario.resx">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

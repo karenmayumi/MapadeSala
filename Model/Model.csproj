@@ -46,12 +46,13 @@
     <Compile Include="Entidades\CursosEntidade.cs" />
     <Compile Include="Entidades\DiadaSemanaEntidade.cs" />
     <Compile Include="Entidades\DisciplinaEntidade.cs" />
+    <Compile Include="Entidades\MapadeSalaEntidade.cs" />
     <Compile Include="Entidades\ProfessoresEntidade.cs" />
     <Compile Include="Entidades\SalasEntidade.cs" />
-    <Compile Include="Entidades\UsuarioEntidade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\UsuariosView.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
