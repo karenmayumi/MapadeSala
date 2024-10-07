@@ -101,5 +101,18 @@ namespace MapadeSala.Formularios
         {
             dtGridDisciplina.DataSource = dao.PesquisarDisciplina(txtSearch.Text);
         }
+
+        private void dtGridDisciplina_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(dtGridDisciplina.Rows[e.RowIndex].Cells[0].Value);
+                frmEditarDisciplina editar = new frmEditarDisciplina(id);
+
+                //Inscreve-se no evento
+                editar.FormClosed += Fechou_Editar_FormClosed;
+                editar.ShowDialog();
+            }
+        }
     }
 }
