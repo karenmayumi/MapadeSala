@@ -15,9 +15,7 @@ namespace MapadeSala.DAO.Editar
 {
     public partial class frmEditarDisciplina : Form
     {
-        DataTable dados;
         DisciplinaDAO dao = new DisciplinaDAO();
-        int LinhaSelecionada;
 
         private string LinhaConexao = "Server=LS05MPF;Database=Aula_DS;User Id=SA;Password=admsasql;"; //LS05M020
         private SqlConnection Conexao;

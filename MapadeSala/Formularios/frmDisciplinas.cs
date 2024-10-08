@@ -21,7 +21,6 @@ namespace MapadeSala.Formularios
         DisciplinaDAO dao = new DisciplinaDAO();
         int LinhaSelecionada;
 
-        List<object[]> Inputs = new List<object[]>();
         Comandos c = new Comandos();
         public frmDisciplinas()
         {
@@ -40,11 +39,6 @@ namespace MapadeSala.Formularios
         private void dtGridDisciplina_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            c.ClearInsertForm(Inputs);
         }
 
         private void btnEditar_Click(object sender, EventArgs e) //salvar alteracoes
@@ -75,13 +69,13 @@ namespace MapadeSala.Formularios
                 //Inscreve-se no evento
                 editar.FormClosed += frmDisciplinas_FormClosed;
                 editar.ShowDialog();
-                LinhaSelecionada = e.RowIndex;
             }
         }
 
         private void frmDisciplinas_FormClosed(object sender, FormClosedEventArgs e)
         {
             dtGridDisciplina.DataSource = dao.ObterDisciplina();
+            LinhaSelecionada = 0;
         }
 
         private void btnAdicionarDisciplina_Click(object sender, EventArgs e)

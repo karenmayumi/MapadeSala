@@ -35,6 +35,7 @@ namespace MapadeSala.Formularios.Adicionar
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chkAtivo
@@ -43,7 +44,7 @@ namespace MapadeSala.Formularios.Adicionar
             this.chkAtivo.Location = new System.Drawing.Point(257, 63);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivo.TabIndex = 42;
+            this.chkAtivo.TabIndex = 3;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
@@ -52,7 +53,7 @@ namespace MapadeSala.Formularios.Adicionar
             this.txtSigla.Location = new System.Drawing.Point(140, 60);
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(100, 20);
-            this.txtSigla.TabIndex = 41;
+            this.txtSigla.TabIndex = 2;
             // 
             // label3
             // 
@@ -68,7 +69,7 @@ namespace MapadeSala.Formularios.Adicionar
             this.txtNome.Location = new System.Drawing.Point(25, 60);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 40;
+            this.txtNome.TabIndex = 1;
             // 
             // label2
             // 
@@ -81,19 +82,30 @@ namespace MapadeSala.Formularios.Adicionar
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(397, 57);
+            this.btnAdicionar.Location = new System.Drawing.Point(405, 75);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(128, 23);
-            this.btnAdicionar.TabIndex = 57;
+            this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.Text = "Adicionar Disciplina";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(446, 46);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(87, 23);
+            this.btnLimpar.TabIndex = 5;
+            this.btnLimpar.Text = "Limpar Campos";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // frmAdicionarDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 120);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.chkAtivo);
             this.Controls.Add(this.txtSigla);
@@ -114,5 +126,6 @@ namespace MapadeSala.Formularios.Adicionar
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

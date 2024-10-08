@@ -1,4 +1,5 @@
 ﻿using MapadeSala.DAO;
+using MapadeSala.Ferramentas;
 using Model.Entidades;
 using System;
 using System.Collections.Generic;
@@ -15,20 +16,26 @@ namespace MapadeSala.Formularios.Adicionar
 {
     public partial class frmAdicionarDisciplina : Form
     {
-        DataTable dados;
+        //DataTable dados;
         DisciplinaDAO dao = new DisciplinaDAO();
+
+        List<object[]> Inputs = new List<object[]>();
+
+Comandos c = new Comandos();
 
         private string LinhaConexao = "Server=LS05MPF;Database=Aula_DS;User Id=SA;Password=admsasql;"; //LS05M020
         private SqlConnection Conexao;
         public frmAdicionarDisciplina()
         {
             InitializeComponent();
+            Inputs.Add(new object[] { txtNome, "txt" });
+            Inputs.Add(new object[] { txtSigla, "txt" });
+            Inputs.Add(new object[] { chkAtivo, "chk" });
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             DisciplinaEntidade disciplina = new DisciplinaEntidade();
-            disciplina.Id = Convert.ToInt32(numId.Value);
             disciplina.Nome = txtNome.Text;
             disciplina.Sigla = txtSigla.Text;
             disciplina.Ativo = chkAtivo.Checked;
@@ -62,6 +69,11 @@ namespace MapadeSala.Formularios.Adicionar
                 MessageBox.Show("Erro ao atualizar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            c.ClearInsertForm(Inputs);
         }
     }
 }

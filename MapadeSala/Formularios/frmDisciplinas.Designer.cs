@@ -30,7 +30,6 @@ namespace MapadeSala.Formularios
         private void InitializeComponent()
         {
             this.dtGridDisciplina = new System.Windows.Forms.DataGridView();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,23 +40,12 @@ namespace MapadeSala.Formularios
             // dtGridDisciplina
             // 
             this.dtGridDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridDisciplina.Location = new System.Drawing.Point(41, 126);
+            this.dtGridDisciplina.Location = new System.Drawing.Point(41, 113);
             this.dtGridDisciplina.Name = "dtGridDisciplina";
-            this.dtGridDisciplina.Size = new System.Drawing.Size(723, 349);
+            this.dtGridDisciplina.Size = new System.Drawing.Size(723, 362);
             this.dtGridDisciplina.TabIndex = 41;
             this.dtGridDisciplina.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridDisciplina_CellClick);
             this.dtGridDisciplina.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridDisciplina_CellDoubleClick);
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Location = new System.Drawing.Point(543, 70);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(87, 23);
-            this.btnLimpar.TabIndex = 7;
-            this.btnLimpar.Text = "Limpar Campos";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Visible = false;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -105,7 +93,6 @@ namespace MapadeSala.Formularios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.dtGridDisciplina);
             this.Name = "frmDisciplinas";
             this.Text = "frmDisciplinas";
@@ -118,7 +105,6 @@ namespace MapadeSala.Formularios
 
         #endregion
         private System.Windows.Forms.DataGridView dtGridDisciplina;
-        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label4;
