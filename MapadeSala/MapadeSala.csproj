@@ -50,6 +50,12 @@
     <Compile Include="DAO\CursoDAO.cs" />
     <Compile Include="DAO\CursoDisciplinaDAO.cs" />
     <Compile Include="DAO\DisciplinaDAO.cs" />
+    <Compile Include="Formularios\Adicionar\frmAdicionarDisciplina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Adicionar\frmAdicionarDisciplina.Designer.cs">
+      <DependentUpon>frmAdicionarDisciplina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Editar\frmEditarDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Adicionar\frmAdicionarDisciplina.resx">
+      <DependentUpon>frmAdicionarDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Editar\frmEditarDisciplina.resx">
       <DependentUpon>frmEditarDisciplina.cs</DependentUpon>
     </EmbeddedResource>

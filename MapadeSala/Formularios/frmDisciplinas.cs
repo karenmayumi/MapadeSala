@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
 using MapadeSala.DAO;
+using MapadeSala.DAO.Editar;
+using MapadeSala.Formularios.Adicionar;
 
 namespace MapadeSala.Formularios
 {
@@ -24,14 +26,7 @@ namespace MapadeSala.Formularios
         public frmDisciplinas()
         {
             InitializeComponent();
-
-            //Inserindo os campos do input para limpá-los
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtSigla, "txt" });
-            Inputs.Add(new object[] { chkAtivo, "chk" });
-
-            dados = new DataTable();
+                        dados = new DataTable();
 
             foreach (var atributos in typeof(DisciplinaEntidade).GetProperties())
             {
@@ -42,44 +37,9 @@ namespace MapadeSala.Formularios
             dtGridDisciplina.DataSource = dao.ObterDisciplina();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e) //criar
-        {
-            DisciplinaEntidade disciplina = new DisciplinaEntidade();
-            disciplina.Id = Convert.ToInt32(numId.Value);
-            disciplina.Nome = txtNome.Text;
-            disciplina.Sigla = txtSigla.Text;
-            disciplina.Ativo = chkAtivo.Checked;
-
-            dados.Rows.Add(disciplina.Linha());
-
-            DisciplinaDAO dao = new DisciplinaDAO();
-            dao.InserirDisciplina(disciplina);
-
-            c.ClearInsertForm(Inputs);
-
-
-            dtGridDisciplina.DataSource = dao.ObterDisciplina();
-
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
-
-            DisciplinaDAO dao = new DisciplinaDAO();
-            dao.ExcluirDisciplina(LinhaSelecionada);
-
-            dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
-            c.ClearInsertForm(Inputs);
-        }
-
         private void dtGridDisciplina_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            numId.Value = Convert.ToInt32(dtGridDisciplina.Rows[LinhaSelecionada].Cells[0].Value.ToString());
-            txtNome.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[1].Value.ToString();
-            txtSigla.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            chkAtivo.Checked = Convert.ToBoolean(dtGridDisciplina.Rows[LinhaSelecionada].Cells[3].Value.ToString());
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -89,12 +49,15 @@ namespace MapadeSala.Formularios
 
         private void btnEditar_Click(object sender, EventArgs e) //salvar alteracoes
         {
-            DataGridViewRow linha = dtGridDisciplina.Rows[LinhaSelecionada];
+            if (LinhaSelecionada >= 0)
+            {
+                int id = Convert.ToInt32(dtGridDisciplina.Rows[LinhaSelecionada].Cells[0].Value);
+                frmEditarDisciplina editar = new frmEditarDisciplina(id);
 
-            linha.Cells[0].Value = numId.Value;
-            linha.Cells[1].Value = txtNome.Text;
-            linha.Cells[2].Value = txtSigla.Text;
-            linha.Cells[3].Value = chkAtivo.Checked;
+                //Inscreve-se no evento
+                editar.FormClosed += frmDisciplinas_FormClosed;
+                editar.ShowDialog();
+            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -110,9 +73,24 @@ namespace MapadeSala.Formularios
                 frmEditarDisciplina editar = new frmEditarDisciplina(id);
 
                 //Inscreve-se no evento
-                editar.FormClosed += Fechou_Editar_FormClosed;
+                editar.FormClosed += frmDisciplinas_FormClosed;
                 editar.ShowDialog();
+                LinhaSelecionada = e.RowIndex;
             }
+        }
+
+        private void frmDisciplinas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dtGridDisciplina.DataSource = dao.ObterDisciplina();
+        }
+
+        private void btnAdicionarDisciplina_Click(object sender, EventArgs e)
+        {
+            frmAdicionarDisciplina adicionar = new frmAdicionarDisciplina();
+
+            //Inscreve-se no evento
+            adicionar.FormClosed += frmDisciplinas_FormClosed;
+            adicionar.ShowDialog();
         }
     }
 }

@@ -22,39 +22,84 @@ namespace MapadeSala.DAO.Editar
         private string LinhaConexao = "Server=LS05MPF;Database=Aula_DS;User Id=SA;Password=admsasql;"; //LS05M020
         private SqlConnection Conexao;
 
-        public frmEditarDisciplina()
+        public frmEditarDisciplina(int DisciplinaId)
         {
             InitializeComponent();
+
+            string query = "select Id, Nome, Sigla, Ativo " +
+                "from Disciplinas where Id = @id";
+
             Conexao = new SqlConnection(LinhaConexao);
-
-
-            DataTable retorno = new DataTable();
             Conexao.Open();
-            string query = "SELECT ID, NOME, SIGLA, ATIVO FROM DISCIPLINAS ORDER BY ID DESC";
-            SqlCommand Comando = new SqlCommand(query, Conexao);
 
-            SqlDataReader Leitura = Comando.ExecuteReader();
+            SqlCommand comando = new SqlCommand(query, Conexao);
 
-            foreach (var atributos in typeof(DisciplinaEntidade).GetProperties())
-            {
-                retorno.Columns.Add(atributos.Name);
-            }
+            comando.Parameters.Add(new SqlParameter("@id", DisciplinaId));
+
+            SqlDataReader Leitura = comando.ExecuteReader();
 
             if (Leitura.HasRows)
             {
                 while (Leitura.Read())
                 {
-                    DisciplinaEntidade c = new DisciplinaEntidade();
-                    c.Id = Convert.ToInt32(Leitura[0]);
-                    c.Nome = Leitura[1].ToString();
-                    c.Sigla = Leitura[2].ToString();
-                    c.Ativo = Convert.ToBoolean(Leitura[3]);
-                    retorno.Rows.Add(c.Linha());
+                    label_id.Text = Leitura[0].ToString();
+                    txtNome.Text = Leitura[1].ToString();
+                    txtSigla.Text = Leitura[2].ToString();
+                    chkAtivo.Checked = Convert.ToBoolean(Leitura[3]);
+
                 }
             }
             Conexao.Close();
 
         }
 
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            string query = "update Disciplinas set Nome = @nome, Sigla = @sigla, Ativo = @ativo WHERE  Id = @id";
+
+            Conexao = new SqlConnection(LinhaConexao);
+            Conexao.Open();
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+
+            comando.Parameters.Add(new SqlParameter("@sigla", txtSigla.Text));
+            comando.Parameters.Add(new SqlParameter("@nome", txtNome.Text));
+            comando.Parameters.Add(new SqlParameter("@ativo", chkAtivo.Checked));
+            comando.Parameters.Add(new SqlParameter("@id", label_id.Text));
+
+            int resposta = comando.ExecuteNonQuery();
+
+            if (resposta == 1)
+            {
+                MessageBox.Show("Disciplina Atualizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string query = "Delete from Disciplinas WHERE  Id = @id";
+
+            Conexao = new SqlConnection(LinhaConexao);
+            Conexao.Open();
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+            comando.Parameters.Add(new SqlParameter("@id", label_id.Text));
+            int resposta = comando.ExecuteNonQuery();
+
+            if (resposta == 1)
+            {
+                MessageBox.Show("Disciplina Excluída com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

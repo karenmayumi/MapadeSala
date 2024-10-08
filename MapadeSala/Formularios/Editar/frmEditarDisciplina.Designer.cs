@@ -29,24 +29,26 @@ namespace MapadeSala.DAO.Editar
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_id = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtSigla = new System.Windows.Forms.TextBox();
-            this.btnEnviar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.label_id = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label_id
+            // label11
             // 
-            this.label_id.AutoSize = true;
-            this.label_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_id.Location = new System.Drawing.Point(36, 34);
-            this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(39, 25);
-            this.label_id.TabIndex = 0;
-            this.label_id.Text = "Id: ";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(36, 34);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(39, 25);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Id: ";
             // 
             // label2
             // 
@@ -90,27 +92,50 @@ namespace MapadeSala.DAO.Editar
             this.txtSigla.Size = new System.Drawing.Size(213, 20);
             this.txtSigla.TabIndex = 6;
             // 
-            // btnEnviar
+            // btnSalvar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(140, 234);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(91, 23);
-            this.btnEnviar.TabIndex = 7;
-            this.btnEnviar.Text = "Enviar edição";
-            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Location = new System.Drawing.Point(140, 234);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(91, 23);
+            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.Text = "Salvar edição";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // label_id
+            // 
+            this.label_id.AutoSize = true;
+            this.label_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_id.Location = new System.Drawing.Point(71, 34);
+            this.label_id.Name = "label_id";
+            this.label_id.Size = new System.Drawing.Size(50, 25);
+            this.label_id.TabIndex = 8;
+            this.label_id.Text = "num";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(41, 234);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(91, 23);
+            this.btnExcluir.TabIndex = 9;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmEditarDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 314);
-            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.label_id);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.chkAtivo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label_id);
+            this.Controls.Add(this.label11);
             this.Name = "frmEditarDisciplina";
             this.Text = "frmEditarDisciplina";
             this.ResumeLayout(false);
@@ -120,12 +145,14 @@ namespace MapadeSala.DAO.Editar
 
         #endregion
 
-        private System.Windows.Forms.Label label_id;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkAtivo;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtSigla;
-        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label label_id;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
