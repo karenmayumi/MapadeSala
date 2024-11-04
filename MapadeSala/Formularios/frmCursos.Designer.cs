@@ -62,6 +62,7 @@ namespace MapadeSala.Formularios
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(183, 20);
             this.txtSearch.TabIndex = 59;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
             // 
             // btnSalvar
             // 
@@ -71,6 +72,7 @@ namespace MapadeSala.Formularios
             this.btnSalvar.TabIndex = 58;
             this.btnSalvar.Text = "Editar/Excluir";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dtGridCursos
             // 
@@ -79,6 +81,8 @@ namespace MapadeSala.Formularios
             this.dtGridCursos.Name = "dtGridCursos";
             this.dtGridCursos.Size = new System.Drawing.Size(723, 362);
             this.dtGridCursos.TabIndex = 60;
+            this.dtGridCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridCursos_CellClick);
+            this.dtGridCursos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridCursos_CellContentDoubleClick);
             // 
             // frmCursos
             // 

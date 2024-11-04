@@ -69,7 +69,37 @@ namespace MapadeSala.Formularios.Adicionar
             c.ClearInsertForm(Inputs);
         }
 
-        private void frmAdicionarCursos_Load(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTurno_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSigla_TextChanged(object sender, EventArgs e)
         {
 
         }

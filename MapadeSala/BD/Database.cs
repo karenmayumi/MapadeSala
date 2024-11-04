@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapaSala.BD
+namespace MapadeSala.BD
 {
     public class Database
     {

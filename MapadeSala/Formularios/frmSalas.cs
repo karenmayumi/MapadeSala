@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
-using MapaSala.DAO;
+using MapadeSala.DAO;
 
 namespace MapadeSala.Formularios
 {

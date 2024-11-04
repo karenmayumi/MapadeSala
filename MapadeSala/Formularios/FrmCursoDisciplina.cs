@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MapadeSala.DAO;
-using MapaSala.DAO;
+using MapadeSala.DAO;
 using Model.Entidades;
 
 namespace MapadeSala.Formularios

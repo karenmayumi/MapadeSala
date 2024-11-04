@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.Entidades;
 
-namespace MapaSala.DAO
+namespace MapadeSala.DAO
 {
     public class CursoDisciplinaDAO
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapaSala.DAO
+namespace MapadeSala.DAO
 {
     public class SalasDAO
     {

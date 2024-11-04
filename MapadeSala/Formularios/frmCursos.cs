@@ -11,6 +11,7 @@ using Model.Entidades;
 using MapadeSala.Ferramentas;
 using MapadeSala.DAO;
 using MapadeSala.Formularios.Adicionar;
+using MapadeSala.Formularios.Editar;
 
 namespace MapadeSala.Formularios
 {
@@ -61,6 +62,43 @@ namespace MapadeSala.Formularios
             //Inscreve-se no evento
             adicionar.FormClosed += frmCursos_FormClosed;
             adicionar.ShowDialog();
+        }
+
+        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            dtGridCursos.DataSource = dao.PesquisarCursos(txtSearch.Text);
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (LinhaSelecionada >= 0)
+            {
+                int id = Convert.ToInt32(dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value);
+                frmEditarCursos editar = new frmEditarCursos(id);
+
+                //Inscreve-se no evento
+                editar.FormClosed += frmCursos_FormClosed;
+                editar.ShowDialog();
+            }
+        }
+
+        private void dtGridCursos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            LinhaSelecionada = e.RowIndex;
+        }
+
+        private void dtGridCursos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(dtGridCursos.Rows[e.RowIndex].Cells[0].Value);
+                frmEditarCursos editar = new frmEditarCursos(id);
+
+                //Inscreve-se no evento
+                editar.FormClosed += frmCursos_FormClosed;
+                editar.ShowDialog();
+            }
         }
     }
 }

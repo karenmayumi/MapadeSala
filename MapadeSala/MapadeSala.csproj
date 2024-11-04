@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD\Database.cs" />
+    <Compile Include="Classes\Usuarios.cs" />
     <Compile Include="DAO\CursoDAO.cs" />
     <Compile Include="DAO\CursoDisciplinaDAO.cs" />
     <Compile Include="DAO\DisciplinaDAO.cs" />
@@ -62,6 +63,18 @@
     <Compile Include="Formularios\Adicionar\frmAdicionarDisciplina.Designer.cs">
       <DependentUpon>frmAdicionarDisciplina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Adicionar\frmAdicionarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Adicionar\frmAdicionarUsuario.Designer.cs">
+      <DependentUpon>frmAdicionarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Editar\frmEditarCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Editar\frmEditarCursos.Designer.cs">
+      <DependentUpon>frmEditarCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Editar\frmEditarDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +85,12 @@
     <Compile Include="DAO\ProfessorDAO.cs" />
     <Compile Include="DAO\SalasDAO.cs" />
     <Compile Include="Ferramentas\Apagar.cs" />
+    <Compile Include="Formularios\Editar\frmEditarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Editar\frmEditarUsuarios.Designer.cs">
+      <DependentUpon>frmEditarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmCursoDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +127,12 @@
     <Compile Include="Formularios\frmSalas.Designer.cs">
       <DependentUpon>frmSalas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,8 +147,17 @@
     <EmbeddedResource Include="Formularios\Adicionar\frmAdicionarDisciplina.resx">
       <DependentUpon>frmAdicionarDisciplina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Adicionar\frmAdicionarUsuario.resx">
+      <DependentUpon>frmAdicionarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Editar\frmEditarCursos.resx">
+      <DependentUpon>frmEditarCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Editar\frmEditarDisciplina.resx">
       <DependentUpon>frmEditarDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Editar\frmEditarUsuarios.resx">
+      <DependentUpon>frmEditarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmCursoDisciplina.resx">
       <DependentUpon>frmCursoDisciplina.cs</DependentUpon>
@@ -142,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSalas.resx">
       <DependentUpon>frmSalas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

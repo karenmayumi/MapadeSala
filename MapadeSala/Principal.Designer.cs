@@ -36,6 +36,7 @@ namespace MapadeSala
             this.disciplinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursoDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mapaDeSalaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,7 +49,7 @@ namespace MapadeSala
             this.faltasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosProfessoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapaDeSalaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,10 +74,11 @@ namespace MapadeSala
             this.disciplinasToolStripMenuItem,
             this.cursosToolStripMenuItem,
             this.cursoDisciplinaToolStripMenuItem,
-            this.mapaDeSalaToolStripMenuItem});
+            this.mapaDeSalaToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
-            this.registroToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.registroToolStripMenuItem.Text = "Registro";
+            this.registroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.registroToolStripMenuItem.Text = "Cadastro";
             // 
             // salasToolStripMenuItem
             // 
@@ -112,6 +114,12 @@ namespace MapadeSala
             this.cursoDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cursoDisciplinaToolStripMenuItem.Text = "Curso Disciplina";
             this.cursoDisciplinaToolStripMenuItem.Click += new System.EventHandler(this.cursoDisciplinaToolStripMenuItem_Click);
+            // 
+            // mapaDeSalaToolStripMenuItem
+            // 
+            this.mapaDeSalaToolStripMenuItem.Name = "mapaDeSalaToolStripMenuItem";
+            this.mapaDeSalaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mapaDeSalaToolStripMenuItem.Text = "Mapa de Sala";
             // 
             // sairToolStripMenuItem
             // 
@@ -195,11 +203,12 @@ namespace MapadeSala
             this.todosProfessoresToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.todosProfessoresToolStripMenuItem.Text = "Todos Professores";
             // 
-            // mapaDeSalaToolStripMenuItem
+            // usuarioToolStripMenuItem
             // 
-            this.mapaDeSalaToolStripMenuItem.Name = "mapaDeSalaToolStripMenuItem";
-            this.mapaDeSalaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mapaDeSalaToolStripMenuItem.Text = "Mapa de Sala";
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Text = "Usuarios";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -242,5 +251,6 @@ namespace MapadeSala
         private System.Windows.Forms.ToolStripMenuItem todosProfessoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursoDisciplinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mapaDeSalaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
     }
 }
