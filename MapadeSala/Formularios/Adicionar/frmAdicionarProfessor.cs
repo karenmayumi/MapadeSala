@@ -14,32 +14,31 @@ using System.Windows.Forms;
 
 namespace MapadeSala.Formularios.Adicionar
 {
-    public partial class frmAdicionarCursos : Form
+    public partial class frmAdicionarProfessor : Form
     {
         List<object[]> Inputs = new List<object[]>();
-
         Comandos c = new Comandos();
-
         private string LinhaConexao = "Server=LS05MPF;Database=Aula_DS;User Id=SA;Password=admsasql;"; //LS05M020
         private SqlConnection Conexao;
-        public frmAdicionarCursos()
+        public frmAdicionarProfessor()
         {
             InitializeComponent();
+
+            //Inserindo os campos do input para limpá-los
             Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtTurno, "txt" });
-            Inputs.Add(new object[] { txtSigla, "txt" });
-            Inputs.Add(new object[] { chkAtivo, "chk" });
+            Inputs.Add(new object[] { txtApelido, "txt" });
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            CursosEntidade curso = new CursosEntidade();
-            curso.Nome = txtNome.Text;
-            curso.Turno = txtTurno.Text;
-            curso.Sigla = txtSigla.Text;
-            curso.Ativo = chkAtivo.Checked;
+            ProfessoresEntidade prof = new ProfessoresEntidade();
+            prof.Nome = txtNome.Text;
+            prof.Apelido = txtApelido.Text;
 
-            string query = "insert into Cursos (nome,turno,sigla,ativo) values (@nome,@turno,@sigla,@ativo)";
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Inserir(prof);
+
+            string query = "insert into Professores (nome,apelido) values (@nome,@apelido)";
 
             Conexao = new SqlConnection(LinhaConexao);
             Conexao.Open();
@@ -47,15 +46,13 @@ namespace MapadeSala.Formularios.Adicionar
             SqlCommand comando = new SqlCommand(query, Conexao);
 
             comando.Parameters.Add(new SqlParameter("@nome", txtNome.Text));
-            comando.Parameters.Add(new SqlParameter("@turno", txtTurno.Text));
-            comando.Parameters.Add(new SqlParameter("@sigla", txtSigla.Text));
-            comando.Parameters.Add(new SqlParameter("@ativo", chkAtivo.Checked));
+            comando.Parameters.Add(new SqlParameter("@apelido", txtApelido.Text));
 
             int resposta = comando.ExecuteNonQuery();
 
             if (resposta == 1)
             {
-                MessageBox.Show("Curso adicionado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Professor adicionado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else

@@ -66,7 +66,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(100, 20);
             this.txtSigla.TabIndex = 60;
-            this.txtSigla.TextChanged += new System.EventHandler(this.txtSigla_TextChanged);
             // 
             // label4
             // 
@@ -76,7 +75,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 59;
             this.label4.Text = "Sigla";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // chkAtivo
             // 
@@ -87,7 +85,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.chkAtivo.TabIndex = 57;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
-            this.chkAtivo.CheckedChanged += new System.EventHandler(this.chkAtivo_CheckedChanged);
             // 
             // txtTurno
             // 
@@ -95,7 +92,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.Size = new System.Drawing.Size(100, 20);
             this.txtTurno.TabIndex = 56;
-            this.txtTurno.TextChanged += new System.EventHandler(this.txtTurno_TextChanged);
             // 
             // label3
             // 
@@ -105,7 +101,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 55;
             this.label3.Text = "Turno";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtNome
             // 
@@ -113,7 +108,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
             this.txtNome.TabIndex = 54;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label2
             // 
@@ -123,7 +117,6 @@ namespace MapadeSala.Formularios.Adicionar
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 53;
             this.label2.Text = "Nome";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmAdicionarCursos
             // 

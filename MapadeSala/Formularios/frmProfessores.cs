@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Model.Entidades;
 using MapadeSala.Ferramentas;
 using MapadeSala.DAO;
+using MapadeSala.Formularios.Adicionar;
+using MapadeSala.Formularios.Editar;
 
 namespace MapadeSala.Formularios
 {
@@ -26,11 +28,6 @@ namespace MapadeSala.Formularios
         {
             InitializeComponent();
 
-            //Inserindo os campos do input para limpá-los
-            Inputs.Add(new object[] { numId, "num" });
-            Inputs.Add(new object[] { txtNome, "txt" });
-            Inputs.Add(new object[] { txtApelido, "txt" });
-
             dados = new DataTable();
             foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
             {
@@ -41,22 +38,6 @@ namespace MapadeSala.Formularios
             dtGridProfessores.DataSource = dados;
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e) //criar
-        {
-            ProfessoresEntidade prof = new ProfessoresEntidade();
-            prof.Id = Convert.ToInt32(numId.Value);
-            prof.Nome = txtNome.Text;
-            prof.Apelido = txtApelido.Text;
-
-            dados.Rows.Add(prof.Linha());
-
-            ProfessorDAO dao = new ProfessorDAO();
-            dao.Inserir(prof);
-
-            dtGridProfessores.DataSource = dao.ObterProfessores();
-
-            c.ClearInsertForm(Inputs);
-        }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -70,18 +51,6 @@ namespace MapadeSala.Formularios
         private void dtGridProfessores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            numId.Value = Convert.ToInt32(dtGridProfessores.Rows[LinhaSelecionada].Cells[0].Value.ToString());
-            txtNome.Text = dtGridProfessores.Rows[LinhaSelecionada].Cells[1].Value.ToString();
-            txtApelido.Text = dtGridProfessores.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-        }
-
-        private void btnSalvar_Click_1(object sender, EventArgs e)
-        {
-            DataGridViewRow linha = dtGridProfessores.Rows[LinhaSelecionada];
-
-            linha.Cells[0].Value = numId.Value;
-            linha.Cells[1].Value = txtNome.Text;
-            linha.Cells[2].Value = txtApelido.Text;
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -92,6 +61,46 @@ namespace MapadeSala.Formularios
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dtGridProfessores.DataSource = dao.PesquisarProfessor(txtSearch.Text);
+        }
+
+        private void btnAdicionarProfessor_Click(object sender, EventArgs e)
+        {
+            frmAdicionarProfessor adicionar = new frmAdicionarProfessor();
+
+            //Inscreve-se no evento
+            adicionar.FormClosed += frmProfessores_FormClosed;
+            adicionar.ShowDialog();
+        }
+        private void frmProfessores_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dtGridProfessores.DataSource = dao.ObterProfessores();
+            LinhaSelecionada = 0;
+        }
+
+        private void dtGridProfessores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(dtGridProfessores.Rows[e.RowIndex].Cells[0].Value);
+                frmEditarProfessor editar = new frmEditarProfessor(id);
+
+                //Inscreve-se no evento
+                editar.FormClosed += frmProfessores_FormClosed;
+                editar.ShowDialog();
+            }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (LinhaSelecionada >= 0)
+            {
+                int id = Convert.ToInt32(dtGridProfessores.Rows[LinhaSelecionada].Cells[0].Value);
+                frmEditarCursos editar = new frmEditarCursos(id);
+
+                //Inscreve-se no evento
+                editar.FormClosed += frmProfessores_FormClosed;
+                editar.ShowDialog();
+            }
         }
     }
 }
